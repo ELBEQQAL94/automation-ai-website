@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Flux | B2B AI-Automation Consulting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#d0e1fb",
+                    "error": "#ba1a1a",
+                    "secondary": "#505f76",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#ecedf7",
+                    "on-tertiary-fixed-variant": "#723600",
+                    "inverse-on-surface": "#eff0fa",
+                    "on-primary-fixed": "#001a42",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "surface": "#f9f9ff",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "outline-variant": "#c2c6d6",
+                    "on-tertiary-container": "#fffbff",
+                    "primary-fixed-dim": "#adc6ff",
+                    "inverse-surface": "#2e3038",
+                    "surface-tint": "#005ac2",
+                    "on-primary-fixed-variant": "#004395",
+                    "primary-container": "#2170e4",
+                    "tertiary-container": "#b75b00",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#f9f9ff",
+                    "surface-container-high": "#e6e7f2",
+                    "on-surface": "#191b23",
+                    "surface-dim": "#d8d9e3",
+                    "on-primary-container": "#fefcff",
+                    "secondary-fixed": "#d3e4fe",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#e1e2ec",
+                    "primary": "#0058be",
+                    "surface-container-low": "#f2f3fd",
+                    "on-secondary-fixed": "#0b1c30",
+                    "primary-fixed": "#d8e2ff",
+                    "tertiary-fixed": "#ffdcc6",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "inverse-primary": "#adc6ff",
+                    "on-surface-variant": "#424754",
+                    "outline": "#727785",
+                    "on-tertiary-fixed": "#311400",
+                    "tertiary-fixed-dim": "#ffb786",
+                    "surface-variant": "#e1e2ec",
+                    "on-secondary-container": "#54647a",
+                    "on-background": "#191b23",
+                    "tertiary": "#924700",
+                    "background": "#f9f9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "32px",
+                    "margin-mobile": "16px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Geist", "sans-serif"],
+                    "body-lg": ["Geist", "sans-serif"],
+                    "label-md": ["JetBrains Mono", "monospace"],
+                    "display": ["Geist", "sans-serif"],
+                    "headline-lg-mobile": ["Geist", "sans-serif"],
+                    "headline-lg": ["Geist", "sans-serif"],
+                    "headline-md": ["Geist", "sans-serif"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "600"}],
+                    "headline-lg": ["30px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f9f9ff;
+            color: #191b23;
+        }
+        .dark body {
+            background-color: #0f1014;
+            color: #eff0fa;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-card {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(114, 119, 133, 0.1);
+        }
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+</head>
+<body class="font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-md bg-surface/80 dark:bg-[#0f1014]/80 border-b border-outline-variant/30">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex items-center justify-between h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tight text-on-surface dark:text-inverse-on-surface">AI Flux</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">Home</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">Services</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">Case Studies</a>
+</nav>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-body-md text-body-md font-medium hover:opacity-90 active:opacity-80 transition-all">
+                Book a Demo
+            </button>
+</div>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-32 px-margin-mobile md:px-gutter">
+<div class="max-w-container-max mx-auto flex flex-col items-center text-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-outline-variant/30 bg-surface-container-low dark:bg-white/5 mb-8">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Intelligent Infrastructure</span>
+</div>
+<h1 class="font-display text-display max-w-4xl mb-6 leading-tight dark:text-white">
+                    Stop retyping data between ClickUp and Airtable. <span class="text-primary dark:text-inverse-primary">Automate the busywork.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-10">
+                    We build custom AI pipelines that connect your existing tools with human-in-the-loop control, ensuring accuracy without sacrificing speed.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 mb-20">
+<button class="bg-primary text-on-primary px-10 py-4 rounded-full font-headline-md text-body-lg font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-primary/20">
+                        Book a Strategy Call
+                    </button>
+<button class="border border-outline px-10 py-4 rounded-full font-headline-md text-body-lg font-semibold hover:bg-surface-variant/10 transition-all dark:text-white">
+                        See Integrations
+                    </button>
+</div>
+<!-- Visual Anchor -->
+<div class="w-full max-w-5xl relative rounded-xl overflow-hidden border border-outline-variant/50 shadow-2xl">
+<img alt="AI Pipeline Visualization" class="w-full h-auto object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgE20oBvi7NV39yKDwjteWQF5gA75hmzvjA5qaGRWWI-Mv2aJz2qSouTFeS8_zPCCDZtbhV2nxUhHzs_U1lYBZpEm9TuWt6UZtMY1W99_KNWwDbjs-s-HEEYyNFnVDqPqUDhpUJiYcWn52TjC_diOez9JhXGrxKGjTfiWWhg461EkE3vmhvmvR-8mNTir2KiX5Ooru8_3ebxVHp9q7SGWus-hZg1tjGfrhvqDL5NkP73dxzFDJmxbpK5gFRxdoSNPu37JG-Nroku0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface/40 dark:from-[#0f1014]/40 to-transparent"></div>
+</div>
+</div>
+</section>
+<!-- Problem Section (3-column layout) -->
+<section class="py-24 px-margin-mobile md:px-gutter bg-surface-container-low dark:bg-[#15171d]">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+<div class="max-w-xl">
+<h2 class="font-label-md text-label-md text-primary mb-4 uppercase tracking-widest">The Friction</h2>
+<h3 class="font-headline-lg text-headline-lg dark:text-white">Why scale stops being fun.</h3>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Manual Busywork -->
+<div class="p-8 rounded-xl border border-outline-variant/20 bg-surface dark:bg-[#0f1014] hover:border-primary transition-colors">
+<div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary">keyboard</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-4 dark:text-white">Manual Busywork</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Data entry isn't just boring—it's expensive. Every minute spent copying fields is a minute lost on high-value strategy.</p>
+</div>
+<!-- Work Falling Through Cracks -->
+<div class="p-8 rounded-xl border border-outline-variant/20 bg-surface dark:bg-[#0f1014] hover:border-primary transition-colors">
+<div class="w-12 h-12 rounded-lg bg-error-container/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-error">warning</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-4 dark:text-white">Falling Through Cracks</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">When systems don't talk, people forget. Missing updates lead to missed deadlines and frustrated clients.</p>
+</div>
+<!-- Headcount vs Growth -->
+<div class="p-8 rounded-xl border border-outline-variant/20 bg-surface dark:bg-[#0f1014] hover:border-primary transition-colors">
+<div class="w-12 h-12 rounded-lg bg-tertiary-container/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-tertiary">trending_up</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-4 dark:text-white">Headcount vs Growth</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Scaling shouldn't mean linear hiring. Automate the load so your current team can handle 10x the volume.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Solution Section -->
+<section class="py-24 px-margin-mobile md:px-gutter">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="font-label-md text-label-md text-primary mb-4 uppercase tracking-widest">Our Approach</h2>
+<h3 class="font-display text-headline-lg md:text-display mb-8 dark:text-white">Built for complex workflows, not just simple Zaps.</h3>
+<div class="space-y-8">
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">1</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2 dark:text-white">Tool Connectivity</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">We deep-link ClickUp, Airtable, Slack, and your internal databases into a single cohesive nervous system.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">2</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2 dark:text-white">Human-in-the-loop</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">AI does the heavy lifting, but we build triggers that wait for your final approval before critical data moves.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">3</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2 dark:text-white">Zero Process Overhaul</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">We adapt to you. You don't need to change how you work; we just make the work happen faster.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-square rounded-3xl bg-surface-container-highest dark:bg-white/5 border border-outline-variant/30 flex items-center justify-center p-12 overflow-hidden">
+<!-- Abstract UI visualization -->
+<div class="w-full space-y-4">
+<div class="h-12 w-full glass-card rounded-lg flex items-center px-4 animate-[pulse_3s_infinite]">
+<span class="w-3 h-3 rounded-full bg-primary mr-3"></span>
+<div class="h-2 w-32 bg-outline-variant/30 rounded"></div>
+</div>
+<div class="h-12 w-full glass-card rounded-lg flex items-center px-4 ml-8 border-l-2 border-l-primary">
+<span class="material-symbols-outlined text-primary text-sm mr-3">sync</span>
+<div class="h-2 w-48 bg-outline-variant/30 rounded"></div>
+</div>
+<div class="h-12 w-full glass-card rounded-lg flex items-center px-4">
+<span class="material-symbols-outlined text-primary text-sm mr-3" style="font-variation-settings: 'FILL' 1;">verified</span>
+<div class="h-2 w-40 bg-outline-variant/30 rounded"></div>
+</div>
+</div>
+</div>
+<!-- Decorative element -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
+</div>
+</div>
+</section>
+<!-- Value Grid (2x2) -->
+<section class="py-24 px-margin-mobile md:px-gutter bg-surface-container-lowest dark:bg-[#0f1014]">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-display text-headline-lg dark:text-white">Quantifiable results.</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/20 rounded-2xl overflow-hidden border border-outline-variant/20">
+<!-- Speed -->
+<div class="bg-surface dark:bg-[#15171d] p-12 group hover:bg-surface-container-low transition-colors">
+<span class="font-label-md text-label-md text-primary font-bold mb-6 block">01 / PERFORMANCE</span>
+<h4 class="font-display text-headline-md mb-4 dark:text-white group-hover:translate-x-2 transition-transform">Speed</h4>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Reduce turnaround times from days to seconds. Data arrives where it's needed the moment it's created.</p>
+</div>
+<!-- Scale -->
+<div class="bg-surface dark:bg-[#15171d] p-12 group hover:bg-surface-container-low transition-colors">
+<span class="font-label-md text-label-md text-primary font-bold mb-6 block">02 / CAPACITY</span>
+<h4 class="font-display text-headline-md mb-4 dark:text-white group-hover:translate-x-2 transition-transform">Scale</h4>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Handle infinite volume without adding stress to your operations team. Technology that scales with your ambition.</p>
+</div>
+<!-- Control -->
+<div class="bg-surface dark:bg-[#15171d] p-12 group hover:bg-surface-container-low transition-colors">
+<span class="font-label-md text-label-md text-primary font-bold mb-6 block">03 / GOVERNANCE</span>
+<h4 class="font-display text-headline-md mb-4 dark:text-white group-hover:translate-x-2 transition-transform">Control</h4>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Maintain total visibility over every data movement. Audit logs and permission gates keep you in the driver's seat.</p>
+</div>
+<!-- Quality -->
+<div class="bg-surface dark:bg-[#15171d] p-12 group hover:bg-surface-container-low transition-colors">
+<span class="font-label-md text-label-md text-primary font-bold mb-6 block">04 / ACCURACY</span>
+<h4 class="font-display text-headline-md mb-4 dark:text-white group-hover:translate-x-2 transition-transform">Quality</h4>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Eliminate human error. AI validated logic ensures that every record is formatted and verified perfectly.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Card Section -->
+<section class="py-24 px-margin-mobile md:px-gutter">
+<div class="max-w-container-max mx-auto">
+<div class="bg-primary dark:bg-primary-container p-12 md:p-24 rounded-[3rem] text-center relative overflow-hidden">
+<!-- Background texture/light -->
+<div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at center, white 1px, transparent 1px); background-size: 24px 24px;"></div>
+<div class="relative z-10">
+<h2 class="font-display text-headline-lg md:text-display text-on-primary mb-6">See it in action</h2>
+<p class="font-body-lg text-body-lg text-on-primary/80 max-w-xl mx-auto mb-10">
+                            Watch how we transformed a 40-hour manual process into a 15-minute automated dashboard.
+                        </p>
+<button class="bg-white text-primary px-10 py-4 rounded-full font-headline-md text-body-lg font-bold hover:bg-surface-container-lowest active:scale-95 transition-all shadow-xl">
+                            View Live Demo
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-[#0f1014] border-t border-outline-variant/20 w-full py-stack-lg">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex flex-col md:flex-row justify-between items-center gap-stack-md">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-headline-md text-headline-md text-on-surface dark:text-white font-bold tracking-tight">AI Flux</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant">© 2024 AI Flux Consultancy. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Services</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Case Studies</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+                card.style.transition = 'all 0.3s ease';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0px)';
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Flux | Engineering Precision Automation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Geist:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#83c2a9",
+                    "tertiary-fixed-dim": "#ffb3af",
+                    "surface-variant": "#353534",
+                    "on-background": "#e5e2e1",
+                    "background": "#0a0a0a",
+                    "tertiary": "#ffb3af",
+                    "on-secondary-fixed-variant": "#0b513d",
+                    "inverse-primary": "#006c49",
+                    "on-surface-variant": "#bbcabf",
+                    "on-tertiary-fixed": "#410005",
+                    "outline": "#262626",
+                    "on-secondary-fixed": "#002117",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-container-highest": "#353534",
+                    "primary": "#10b981",
+                    "on-error": "#690005",
+                    "primary-fixed": "#6ffbbe",
+                    "tertiary-fixed": "#ffdad7",
+                    "surface-bright": "#3a3939",
+                    "surface-container-high": "#2a2a2a",
+                    "secondary-fixed": "#b0f0d6",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-surface": "#e5e2e1",
+                    "on-primary-container": "#00422b",
+                    "surface-dim": "#0a0a0a",
+                    "surface-tint": "#10b981",
+                    "on-primary-fixed-variant": "#005236",
+                    "on-tertiary": "#650911",
+                    "tertiary-container": "#fc7c78",
+                    "primary-container": "#10b981",
+                    "outline-variant": "#3c4a42",
+                    "on-tertiary-container": "#711419",
+                    "secondary-fixed-dim": "#95d3ba",
+                    "on-primary": "#003824",
+                    "primary-fixed-dim": "#4edea3",
+                    "inverse-surface": "#e5e2e1",
+                    "inverse-on-surface": "#313030",
+                    "on-tertiary-fixed-variant": "#842225",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed": "#002113",
+                    "surface-container": "#171717",
+                    "surface": "#131313",
+                    "on-secondary": "#003829",
+                    "error": "#ffb4ab",
+                    "secondary-container": "#0b513d",
+                    "error-container": "#93000a",
+                    "secondary": "#95d3ba"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "grid-gutter": "24px",
+                    "sm": "16px",
+                    "lg": "48px",
+                    "base": "4px",
+                    "md": "24px",
+                    "xs": "8px",
+                    "xl": "80px",
+                    "margin-mobile": "16px",
+                    "stack-lg": "64px",
+                    "stack-md": "32px",
+                    "gutter": "48px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Geist"],
+                    "code-sm": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Geist"],
+                    "headline-lg": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "body-md": ["Geist"],
+                    "label-mono": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "headline-md": ["30px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "code-sm": ["13px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.08em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0a;
+            background-image: radial-gradient(#1a1a1a 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .terminal-cursor::after {
+            content: '_';
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        .glass-border {
+            border: 1px solid #262626;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #262626; }
+        ::-webkit-scrollbar-thumb:hover { background: #10b981; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-surface/80 border-b border-outline-variant/30">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex items-center justify-between h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="bolt">bolt</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tight text-on-surface">AI Flux</span>
+</div>
+<div class="hidden md:flex gap-8">
+<a class="text-primary font-medium font-label-mono text-label-mono transition-colors duration-200" href="#">/SYSTEM</a>
+<a class="text-on-surface-variant font-medium font-label-mono text-label-mono hover:text-primary transition-colors duration-200" href="#">/PIPELINES</a>
+<a class="text-on-surface-variant font-medium font-label-mono text-label-mono hover:text-primary transition-colors duration-200" href="#">/DOCS</a>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 font-label-mono text-label-mono font-bold hover:brightness-110 active:opacity-80 transition-all">
+                BOOK_DEMO
+            </button>
+</div>
+</nav>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[707px] flex flex-col justify-center px-margin-mobile md:px-gutter py-xl overflow-hidden">
+<div class="max-w-3xl">
+<div class="inline-flex items-center gap-2 border border-outline px-3 py-1 mb-8 bg-surface-container">
+<span class="w-2 h-2 bg-primary animate-pulse"></span>
+<span class="font-label-mono text-label-mono text-primary uppercase">System Status: Operational</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg mb-6 leading-none">
+                    Engineering Precision at <span class="text-primary">Global Scale.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+                    High-performance AI automation for technical teams. Transform manual bottlenecks into hard-coded growth through modular engineering pipelines.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 font-label-mono text-headline-md text-sm font-bold flex items-center justify-center gap-2">
+                        INITIALIZE_DEMO
+                        <span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</button>
+<button class="border border-outline bg-transparent text-on-surface px-8 py-4 font-label-mono text-sm font-bold hover:bg-surface-container transition-colors">
+                        READ_ARCHITECTURE
+                    </button>
+</div>
+</div>
+<!-- Terminal Decor -->
+<div class="hidden lg:block absolute right-gutter top-1/2 -translate-y-1/2 w-1/3 aspect-video bg-surface-container border border-outline p-4 font-code-sm text-code-sm overflow-hidden">
+<div class="flex gap-1.5 mb-4">
+<div class="w-2.5 h-2.5 rounded-full bg-outline"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-outline"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-outline"></div>
+</div>
+<div class="space-y-1 opacity-80">
+<p class="text-primary">&gt; initializing_worker_01...</p>
+<p class="text-on-surface-variant">Connecting to neural_engine_v4.2</p>
+<p class="text-on-surface-variant">Scanning document_id: [8x92-QA]</p>
+<p class="text-primary">&gt; extraction_success: confidence_99.8%</p>
+<p class="text-on-surface-variant">Routing to human_in_the_loop_cluster...</p>
+<p class="text-on-surface-variant">Waiting for approval_token...</p>
+<p class="text-primary terminal-cursor">&gt; pipeline_status: active</p>
+</div>
+</div>
+</section>
+<!-- Problem Section -->
+<section class="px-margin-mobile md:px-gutter py-xl bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto">
+<div class="mb-16">
+<span class="font-label-mono text-label-mono text-on-tertiary-fixed-variant mb-4 block">// SYSTEM_INEFFICIENCIES</span>
+<h2 class="font-headline-md text-headline-md max-w-2xl">The technical debt of manual operations is killing your velocity.</h2>
+</div>
+<div class="grid md:grid-cols-3 gap-6">
+<!-- Manual Work -->
+<div class="p-8 border border-outline bg-surface-container hover:border-primary transition-colors group">
+<div class="w-12 h-12 mb-6 border border-outline flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary transition-all">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary" data-icon="pan_tool">pan_tool</span>
+</div>
+<h3 class="font-label-mono text-label-mono text-primary mb-4 uppercase tracking-widest">Manual Work</h3>
+<p class="text-on-surface-variant font-body-md text-body-md">Talented engineers spending 40% of their bandwidth on data sanitation and repetitive task routing.</p>
+</div>
+<!-- Error Rates -->
+<div class="p-8 border border-outline bg-surface-container hover:border-primary transition-colors group">
+<div class="w-12 h-12 mb-6 border border-outline flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary transition-all">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary" data-icon="warning">warning</span>
+</div>
+<h3 class="font-label-mono text-label-mono text-primary mb-4 uppercase tracking-widest">Error Rates</h3>
+<p class="text-on-surface-variant font-body-md text-body-md">Human fatigue leads to 15% deviation in operational accuracy, causing cascading downstream failures.</p>
+</div>
+<!-- Hiring Bottlenecks -->
+<div class="p-8 border border-outline bg-surface-container hover:border-primary transition-colors group">
+<div class="w-12 h-12 mb-6 border border-outline flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary transition-all">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary" data-icon="group_add">group_add</span>
+</div>
+<h3 class="font-label-mono text-label-mono text-primary mb-4 uppercase tracking-widest">Hiring Bottlenecks</h3>
+<p class="text-on-surface-variant font-body-md text-body-md">Scaling headcount to fix inefficient processes is a linear solution to an exponential problem.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Solution Section -->
+<section class="px-margin-mobile md:px-gutter py-xl border-y border-outline">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col lg:flex-row gap-16 items-center">
+<div class="flex-1">
+<span class="font-label-mono text-label-mono text-primary mb-4 block">// THE_FLUX_SOLUTION</span>
+<h2 class="font-headline-md text-headline-md mb-8">Programmatic automation with a human safety-lock.</h2>
+<div class="space-y-8">
+<div class="flex gap-6">
+<div class="font-label-mono text-label-mono text-on-surface-variant pt-1">01</div>
+<div>
+<h4 class="font-label-mono text-label-mono text-on-surface mb-2">ENGINEERED PIPELINES</h4>
+<p class="text-on-surface-variant text-body-md">Custom-built nodes that ingest, process, and structure unstructured data with mathematical certainty.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="font-label-mono text-label-mono text-on-surface-variant pt-1">02</div>
+<div>
+<h4 class="font-label-mono text-label-mono text-on-surface mb-2">HUMAN APPROVAL STEPS</h4>
+<p class="text-on-surface-variant text-body-md">Critical decisions are flagged for expert review, ensuring AI efficiency never compromises system integrity.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="font-label-mono text-label-mono text-on-surface-variant pt-1">03</div>
+<div>
+<h4 class="font-label-mono text-label-mono text-on-surface mb-2">AUTONOMOUS FEEDBACK</h4>
+<p class="text-on-surface-variant text-body-md">The system learns from human corrections, self-optimizing its logic with every interaction.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 w-full bg-surface border border-outline p-6 relative overflow-hidden group">
+<div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-[0.02] transition-opacity"></div>
+<div class="space-y-4">
+<div class="h-1 bg-outline-variant w-full overflow-hidden">
+<div class="h-full bg-primary w-1/3 animate-[progress_3s_infinite_linear]"></div>
+</div>
+<div class="flex justify-between items-center text-label-mono text-[10px] text-on-surface-variant">
+<span>PROCESS_LOG_STREAM</span>
+<span class="animate-pulse">REC_READY</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="aspect-square bg-surface-container border border-outline-variant flex items-center justify-center p-4">
+<img class="w-full opacity-50" data-alt="A dark technical blueprint schematic of an AI neural network node in emerald green and deep black, rendered in a crisp vector style with fine line work." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_KUDFQmQk4T-SxFNao1obXBSolkf4xe2szbapjukyRPWO-tRKLoZhuOWM2ttA07B1I6K8mQNYKm0QT-kx9iem5sx_yUUGNsgaZlZWPYJzPNK5w7utgdcYvKgmG2BUotA_0Oj_J6RC6bwXFmuTjUYdCMs0xclPQ5AA2ih6-KqIVsdotZKrNpy-ZcVkFTUN64QeRD1SVnCINkDwRpKOR-kcJESSct9tvaXguV4NqXbr2V4aqrCIH7re-VolE0vu3wSRZonK264WsXI"/>
+</div>
+<div class="aspect-square bg-surface-container border border-outline-variant flex items-center justify-center p-4">
+<img class="w-full opacity-50" data-alt="Close up of a high-resolution dark mode dashboard interface showing complex data structures and code strings in a monospace font, glowing with subtle emerald light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7TEOrww1inQ6P4qtV7ryp2NZ3qq2xR7bqLHAyq3cttSuYGp0bg2omKKuJMe8rWLJcgFraYkrv4HWpB7iRiLeku_HQ27zHhmtL5Lj-4cluQjy4XNKRsl2dzx1jGZa0_Z3kSA9VO13YSh7n5t3sWSjwMe2N0YwaBKG3GW4qg7u5N-oL8IoZdL8oNyTebdcUHgRqgCbP-nslOAIe3B4uidC32h8yPb-XHbx0nJu2HleOpRnxdzz2tZaep3BG7IVffBwDQvED2z65Iz8"/>
+</div>
+</div>
+<div class="p-4 border border-outline-variant bg-black/40 font-code-sm text-[11px] text-on-surface-variant">
+<span class="text-primary font-bold">COMMIT:</span> d8f92a1 - Human Verified <br/>
+<span class="text-primary font-bold">LATENCY:</span> 14ms <br/>
+<span class="text-primary font-bold">ACCURACY:</span> 1.000
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Value Section -->
+<section class="px-margin-mobile md:px-gutter py-xl">
+<div class="max-w-container-max mx-auto text-center mb-16">
+<span class="font-label-mono text-label-mono text-on-surface-variant mb-4 inline-block">// MEASURABLE_OUTPUTS</span>
+<h2 class="font-headline-md text-headline-md">Impact on Infrastructure</h2>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-container-max mx-auto">
+<div class="p-8 bg-surface-container border border-outline text-center">
+<div class="font-headline-md text-headline-md text-primary mb-2">94%</div>
+<div class="font-label-mono text-label-mono text-on-surface-variant uppercase">Cost Reduction</div>
+</div>
+<div class="p-8 bg-surface-container border border-outline text-center">
+<div class="font-headline-md text-headline-md text-primary mb-2">0.02s</div>
+<div class="font-label-mono text-label-mono text-on-surface-variant uppercase">Decision Latency</div>
+</div>
+<div class="p-8 bg-surface-container border border-outline text-center">
+<div class="font-headline-md text-headline-md text-primary mb-2">12x</div>
+<div class="font-label-mono text-label-mono text-on-surface-variant uppercase">Throughput Scale</div>
+</div>
+<div class="p-8 bg-surface-container border border-outline text-center">
+<div class="font-headline-md text-headline-md text-primary mb-2">0</div>
+<div class="font-label-mono text-label-mono text-on-surface-variant uppercase">Logic Fatigue</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-margin-mobile md:px-gutter py-xl">
+<div class="max-w-3xl mx-auto border border-primary/30 bg-primary/5 p-10 md:p-16 text-center relative overflow-hidden">
+<div class="absolute -top-4 -right-4 w-24 h-24 border-t border-r border-primary/20"></div>
+<div class="absolute -bottom-4 -left-4 w-24 h-24 border-b border-l border-primary/20"></div>
+<h2 class="font-headline-md text-headline-md mb-6">Ready to automate with precision?</h2>
+<p class="text-on-surface-variant font-body-md mb-10">Stop treating AI as a toy. Start treating it as infrastructure. Book a technical deep-dive with our engineering team.</p>
+<div class="flex flex-col items-center gap-4">
+<button class="w-full sm:w-auto bg-primary text-on-primary px-12 py-5 font-label-mono text-sm font-bold flex items-center justify-center gap-3 group">
+<span class="material-symbols-outlined text-lg" data-icon="terminal">terminal</span>
+                        SEE_LIVE_DEMO
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<span class="font-code-sm text-[10px] text-on-surface-variant uppercase">Waiting for input_request...</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface border-t border-outline-variant/20 w-full py-stack-lg">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex flex-col md:flex-row justify-between items-center gap-stack-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="bolt">bolt</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">AI Flux</span>
+</div>
+<div class="flex gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Services</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Case Studies</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<div class="text-on-surface-variant font-label-md text-label-md text-center md:text-right">
+                © 2024 AI Flux Consultancy. All rights reserved.
+            </div>
+</div>
+</footer>
+<script>
+        // Micro-interaction: Update "terminal" lines randomly
+        const logLines = [
+            "analyzing data_integrity...",
+            "updating weight_matrices...",
+            "patching security_nodes...",
+            "routing workflow_v2.0.4...",
+            "monitoring node_cluster_B...",
+            "optimizing gpu_utilization..."
+        ];
+
+        setInterval(() => {
+            const container = document.querySelector('.space-y-1');
+            if (container) {
+                const newLine = document.createElement('p');
+                newLine.className = 'text-on-surface-variant opacity-60 transition-all duration-500';
+                newLine.innerText = `> ${logLines[Math.floor(Math.random() * logLines.length)]}`;
+                
+                if (container.children.length > 8) {
+                    container.removeChild(container.children[1]);
+                }
+                container.insertBefore(newLine, container.lastElementChild);
+            }
+        }, 3000);
+
+        // Smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+<style>
+        @keyframes progress {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(300%); }
+        }
+    </style>
+</body></html>

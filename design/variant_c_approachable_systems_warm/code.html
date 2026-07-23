@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Flux | Scale Your Agency Without the Stress</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#F5E6D3", /* Warm Cream */
+                    "error": "#ba1a1a",
+                    "secondary": "#8D4C32", /* Terracotta */
+                    "error-container": "#ffdad6",
+                    "surface-container": "#FDFBF7",
+                    "on-tertiary-fixed-variant": "#723600",
+                    "inverse-on-surface": "#191B23",
+                    "on-primary-fixed": "#311400",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "surface": "#FCF9F5", /* Off-white background */
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "outline-variant": "#E8E2D9",
+                    "on-tertiary-container": "#fffbff",
+                    "primary-fixed-dim": "#FFB786",
+                    "inverse-surface": "#F9F9FF",
+                    "surface-tint": "#D97706", /* Amber */
+                    "on-primary-fixed-variant": "#924700",
+                    "primary-container": "#FDE68A", /* Amber Tint */
+                    "tertiary-container": "#B45309",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#FCF9F5",
+                    "surface-container-high": "#F5F0E8",
+                    "on-surface": "#2D2825",
+                    "surface-dim": "#EBE4DA",
+                    "on-primary-container": "#451A03",
+                    "secondary-fixed": "#FFEDD5",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#EDE7DE",
+                    "primary": "#D97706", /* Amber */
+                    "surface-container-low": "#FAF7F2",
+                    "on-secondary-fixed": "#2D2825",
+                    "primary-fixed": "#FFEDD5",
+                    "tertiary-fixed": "#FFDCC6",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#8D4C32",
+                    "inverse-primary": "#FFB786",
+                    "on-surface-variant": "#5C544E",
+                    "outline": "#857E78",
+                    "on-tertiary-fixed": "#311400",
+                    "tertiary-fixed-dim": "#ffb786",
+                    "surface-variant": "#F2EBE1",
+                    "on-secondary-container": "#451A03",
+                    "on-background": "#2D2825",
+                    "tertiary": "#8D4C32",
+                    "background": "#FCF9F5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.5rem",
+                    "lg": "1rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "32px",
+                    "margin-mobile": "16px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "label-md": ["JetBrains Mono"],
+                    "display": ["Geist"],
+                    "headline-lg-mobile": ["Geist"],
+                    "headline-lg": ["Geist"],
+                    "headline-md": ["Geist"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "600"}],
+                    "headline-lg": ["30px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #FCF9F5;
+            color: #2D2825;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-inner {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(141, 76, 50, 0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-md bg-surface/80 border-b border-outline-variant/30">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex items-center justify-between h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-headline-md" data-icon="bolt">bolt</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tight text-on-surface">AI Flux</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-full font-body-md font-medium cursor-pointer active:opacity-80 transition-all">
+                Book a Demo
+            </button>
+</div>
+</header>
+<main class="pt-24 pb-12">
+<!-- Hero Section -->
+<section class="px-margin-mobile mb-16 text-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-secondary-container rounded-full mb-6">
+<span class="text-label-md font-label-md text-on-secondary-fixed-variant">FOR CREATIVE AGENCIES</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-4 leading-tight">
+                Scale your agency <br/><span class="text-primary">without the stress.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-sm mx-auto">
+                Human-centered AI automation that handles the heavy lifting, so your team can focus on the big ideas.
+            </p>
+<div class="flex flex-col gap-3">
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-headline-md font-bold text-lg shadow-lg shadow-primary/20">
+                    Get Started Free
+                </button>
+<p class="text-label-md font-label-md text-on-surface-variant/60">No credit card required • 14-day trial</p>
+</div>
+</section>
+<!-- Problem Section (3 Cards) -->
+<section class="px-margin-mobile mb-16">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">The growth bottleneck</h2>
+<div class="space-y-4">
+<div class="p-6 bg-surface-container-high rounded-xl border border-outline-variant/50">
+<span class="material-symbols-outlined text-secondary text-3xl mb-3" data-icon="mail">mail</span>
+<h3 class="font-headline-md text-headline-md mb-2">Cluttered Inboxes</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Losing hours every day just trying to find client feedback in a sea of unread emails.</p>
+</div>
+<div class="p-6 bg-surface-container-high rounded-xl border border-outline-variant/50">
+<span class="material-symbols-outlined text-secondary text-3xl mb-3" data-icon="update_disabled">update_disabled</span>
+<h3 class="font-headline-md text-headline-md mb-2">Manual Reporting</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Spending late nights manually compiling data into spreadsheets for Monday mornings.</p>
+</div>
+<div class="p-6 bg-surface-container-high rounded-xl border border-outline-variant/50">
+<span class="material-symbols-outlined text-secondary text-3xl mb-3" data-icon="person_off">person_off</span>
+<h3 class="font-headline-md text-headline-md mb-2">Burnout Risk</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Your best talent is stuck doing repetitive tasks instead of high-value creative work.</p>
+</div>
+</div>
+</section>
+<!-- Visual Comparison Placeholder (Before/After) -->
+<section class="px-margin-mobile mb-16">
+<div class="relative overflow-hidden bg-on-surface text-surface rounded-xl p-8 aspect-square flex flex-col justify-center items-center gap-8">
+<div class="flex items-center justify-center gap-6">
+<div class="flex flex-col items-center gap-2 opacity-50">
+<span class="material-symbols-outlined text-5xl" data-icon="inbox">inbox</span>
+<span class="text-label-md font-label-md">BEFORE</span>
+</div>
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="trending_flat">trending_flat</span>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-5xl text-primary" data-icon="checklist">checklist</span>
+<span class="text-label-md font-label-md text-primary">AFTER</span>
+</div>
+</div>
+<div class="text-center">
+<p class="font-headline-md text-headline-md">90% faster client onboarding</p>
+<p class="text-label-md opacity-70">Automated from proposal to kickoff.</p>
+</div>
+</div>
+</section>
+<!-- Solution Section (3 Cards) -->
+<section class="px-margin-mobile mb-16 bg-secondary-fixed py-12 -mx-margin-mobile px-margin-mobile">
+<h2 class="font-headline-md text-headline-md text-on-secondary-fixed mb-6">The AI Flux Solution</h2>
+<div class="space-y-4">
+<div class="p-6 bg-surface rounded-xl border-b-4 border-primary">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+<h3 class="font-headline-md text-headline-md">Smart Sorting</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">AI categorizes every request, highlights urgency, and drafts initial responses for you.</p>
+</div>
+<div class="p-6 bg-surface rounded-xl border-b-4 border-primary">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-primary" data-icon="insights">insights</span>
+<h3 class="font-headline-md text-headline-md">Live Dashboards</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Client reports update in real-time. No more manual data entry, just pure insight.</p>
+</div>
+<div class="p-6 bg-surface rounded-xl border-b-4 border-primary">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-primary" data-icon="groups">groups</span>
+<h3 class="font-headline-md text-headline-md">Team Co-pilot</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Automate the boring stuff so your team can focus on what they do best: creating.</p>
+</div>
+</div>
+</section>
+<!-- 2x2 Value Grid -->
+<section class="px-margin-mobile mb-16">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6 text-center">Built for your peace of mind</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 bg-surface-container rounded-xl border border-outline-variant/30 text-center">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="verified_user">verified_user</span>
+<h4 class="font-label-md text-label-md font-bold">Secure Data</h4>
+<p class="text-[11px] text-on-surface-variant">Enterprise-grade encryption.</p>
+</div>
+<div class="p-4 bg-surface-container rounded-xl border border-outline-variant/30 text-center">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="support_agent">support_agent</span>
+<h4 class="font-label-md text-label-md font-bold">24/7 Human Support</h4>
+<p class="text-[11px] text-on-surface-variant">We're always here to help.</p>
+</div>
+<div class="p-4 bg-surface-container rounded-xl border border-outline-variant/30 text-center">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="integration_instructions">integration_instructions</span>
+<h4 class="font-label-md text-label-md font-bold">Easy Setup</h4>
+<p class="text-[11px] text-on-surface-variant">Connects to 100+ tools.</p>
+</div>
+<div class="p-4 bg-surface-container rounded-xl border border-outline-variant/30 text-center">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="analytics">analytics</span>
+<h4 class="font-label-md text-label-md font-bold">Proven ROI</h4>
+<p class="text-[11px] text-on-surface-variant">Save 15hrs per week.</p>
+</div>
+</div>
+</section>
+<!-- Bordered "See it in action" CTA card -->
+<section class="px-margin-mobile mb-16">
+<div class="border-2 border-dashed border-primary/50 bg-primary-container rounded-xl p-8 text-center relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="font-headline-md text-headline-md text-on-primary-container mb-2">See it in action</h2>
+<p class="font-body-md text-body-md text-on-primary-container/80 mb-6">Watch how Sarah automated her 20-person creative agency in just 3 days.</p>
+<div class="relative rounded-lg overflow-hidden mb-6 aspect-video bg-on-surface flex items-center justify-center">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60" data-alt="A warm and inviting workspace with a laptop open showing a clean agency management dashboard. A creative professional is smiling while holding a terracotta ceramic mug. The lighting is soft morning sunlight, creating a calm and reassuring atmosphere. The color palette features creams, ambers, and soft browns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr9sOuo1dgcif0hmJFvlDk6NSyRA6D8IsYIuJFozYN14M5XeQ4F23xDCqsPqeoG_Zvxx0ZS448PZZa4hsYeGrdK7E3RB5xvb1KZAHDjQTLB7Bv6ouZo7Tvd5FrjaQ9DuSCof9Iwyxwo5wCI9Etza47Tefy0orw71dpUZH4NmEsbr0MyAdhBlaGhhlF967S_8jopq1nfWj_cMGjnctTQFtw_VhOnH5EepPxbwjewSw-gitK5pM6sJVvDi2cYrLRyT_6xA9wQ1yKPZI"/>
+<span class="material-symbols-outlined text-surface text-6xl relative z-10 cursor-pointer" data-icon="play_circle">play_circle</span>
+</div>
+<button class="w-full bg-on-primary-container text-surface py-3 rounded-xl font-bold">Book Demo Now</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg border-t border-outline-variant/20 bg-surface dark:bg-surface-dim">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex flex-col items-center gap-stack-md">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-headline-md" data-icon="bolt">bolt</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">AI Flux</span>
+</div>
+<nav class="flex flex-wrap justify-center gap-4 mb-6">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Services</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Case Studies</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+<p class="font-label-md text-label-md text-on-surface-variant text-center opacity-70">
+                © 2024 AI Flux Consultancy. All rights reserved.
+            </p>
+</div>
+</footer>
+<script>
+        // Micro-interaction for the "Play" button
+        const playBtn = document.querySelector('[data-icon="play_circle"]');
+        if (playBtn) {
+            playBtn.addEventListener('mouseenter', () => {
+                playBtn.style.transform = 'scale(1.1)';
+                playBtn.style.transition = 'transform 0.2s ease';
+            });
+            playBtn.addEventListener('mouseleave', () => {
+                playBtn.style.transform = 'scale(1)';
+            });
+        }
+
+        // Simple scroll reveal for cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.rounded-xl').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
+            observer.observe(card);
+        });
+    </script>
+</body></html>

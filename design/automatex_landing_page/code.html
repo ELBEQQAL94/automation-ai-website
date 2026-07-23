@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AutomateX | Eliminate Manual Busywork</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/font.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#d3e4fe",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#d0e1fb",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "outline-variant": "#c2c6d6",
+                        "inverse-primary": "#adc6ff",
+                        "surface-container-high": "#e6e7f2",
+                        "surface-container-highest": "#e1e2ec",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#005ac2",
+                        "tertiary-fixed-dim": "#ffb786",
+                        "on-primary-fixed-variant": "#004395",
+                        "surface-variant": "#e1e2ec",
+                        "tertiary": "#924700",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#fefcff",
+                        "on-secondary-container": "#54647a",
+                        "tertiary-container": "#b75b00",
+                        "on-tertiary-fixed": "#311400",
+                        "on-tertiary-container": "#fffbff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#0b1c30",
+                        "primary-fixed": "#d8e2ff",
+                        "on-error-container": "#93000a",
+                        "secondary": "#505f76",
+                        "on-tertiary-fixed-variant": "#723600",
+                        "primary-container": "#2170e4",
+                        "inverse-surface": "#2e3038",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#adc6ff",
+                        "outline": "#727785",
+                        "on-background": "#191b23",
+                        "on-surface": "#191b23",
+                        "tertiary-fixed": "#ffdcc6",
+                        "surface-bright": "#f9f9ff",
+                        "on-error": "#ffffff",
+                        "surface-container": "#ecedf7",
+                        "inverse-on-surface": "#eff0fa",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#d8d9e3",
+                        "surface-container-low": "#f2f3fd",
+                        "primary": "#0058be",
+                        "on-primary-fixed": "#001a42",
+                        "surface": "#f9f9ff",
+                        "on-surface-variant": "#424754",
+                        "background": "#f9f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "stack-lg": "32px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Geist", "sans-serif"],
+                        "label-md": ["JetBrains Mono", "monospace"],
+                        "display": ["Geist", "sans-serif"],
+                        "body-md": ["Geist", "sans-serif"],
+                        "headline-lg-mobile": ["Geist", "sans-serif"],
+                        "body-lg": ["Geist", "sans-serif"],
+                        "headline-lg": ["Geist", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "30px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #191b23; /* Matching dark mode background from config */
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(46, 48, 56, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(194, 198, 214, 0.1);
+        }
+    </style>
+</head>
+<body class="dark bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant dark:border-outline-variant/20 docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-2 cursor-pointer active:scale-95 duration-200">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="smart_toy">smart_toy</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface">AutomateX</span>
+</div>
+<nav class="hidden md:flex gap-gutter items-center">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Services</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Solutions</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Pricing</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-md text-label-md font-bold hover:opacity-90 active:scale-95 transition-all">
+                Live Demo
+            </button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-24 pb-16 px-margin-mobile md:px-gutter max-w-container-max mx-auto overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
+<div class="z-10">
+<span class="inline-block font-label-md text-label-md px-3 py-1 rounded-full border border-primary/20 text-primary-fixed bg-primary/10 mb-stack-md uppercase tracking-widest">
+                        B2B Process Automation
+                    </span>
+<h1 class="font-display text-display mb-stack-md leading-tight">
+                        Eliminate manual busywork. <span class="text-primary-container">Automatically.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg max-w-lg">
+                        Connect your tools, automate retyping, and scale your ops without adding headcount. Our tailored AI workflows do the heavy lifting for you.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-full font-headline-md text-headline-md transition-transform hover:scale-[1.02] active:scale-95">
+                            See it in action
+                        </button>
+<button class="border border-outline-variant text-on-surface px-8 py-4 rounded-full font-headline-md text-headline-md hover:bg-surface-variant/10 transition-colors">
+                            Talk to an expert
+                        </button>
+</div>
+</div>
+<div class="relative mt-stack-lg lg:mt-0">
+<div class="absolute inset-0 bg-primary/5 blur-[120px] rounded-full"></div>
+<img alt="Process Automation Visualization" class="relative z-10 w-full h-auto rounded-xl border border-outline-variant/20 shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJTr8u9Jj9gGb4q59etcADkeXnuQw8mBXE8zwBkAr2Iyfel386sXIQi5LohV0fTBOUjrxwHZv9zJLUEZidXQUi75GUKvpxEXOMnHqHv21jk2pVlXpHONxq8kObPJdfcrtIV6vjN9ALjT2gYbI-y3cGvzsj7P2VH5MowDZciIKuvNJIToYzcgMkaQ_JjADCaQOgHOUushblJceGi_EUVOHlL7NXRFDlbTnZx6XpRySszilQJBwfBcxtM1UVqa7zIzimRJjOZDIKBgw"/>
+</div>
+</div>
+</section>
+<!-- Problem Section (Asymmetric Grid) -->
+<section class="py-stack-lg px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div class="mb-stack-lg">
+<h2 class="font-label-md text-label-md text-primary tracking-widest uppercase mb-2">The Challenge</h2>
+<h3 class="font-headline-lg text-headline-lg">Stop throwing people at process problems.</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="p-8 border border-outline-variant/20 rounded-xl hover:bg-surface-container-low transition-colors group">
+<span class="material-symbols-outlined text-4xl mb-4 text-on-surface-variant group-hover:text-primary transition-colors" data-icon="work_history">work_history</span>
+<h4 class="font-headline-md text-headline-md mb-2">Manual Busywork</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Data entry shouldn't be your team's full-time job. Reclaim their focus for high-value strategy.</p>
+</div>
+<div class="p-8 border border-outline-variant/20 rounded-xl hover:bg-surface-container-low transition-colors group">
+<span class="material-symbols-outlined text-4xl mb-4 text-on-surface-variant group-hover:text-primary transition-colors" data-icon="warning">warning</span>
+<h4 class="font-headline-md text-headline-md mb-2">Cracks in the System</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Human error leads to missed deadlines and lost revenue. Automation ensures 100% data integrity.</p>
+</div>
+<div class="p-8 border border-outline-variant/20 rounded-xl hover:bg-surface-container-low transition-colors group">
+<span class="material-symbols-outlined text-4xl mb-4 text-on-surface-variant group-hover:text-primary transition-colors" data-icon="person_remove">person_remove</span>
+<h4 class="font-headline-md text-headline-md mb-2">Hiring Trap</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Don't solve process problems with more headcount. Scale output without inflating your payroll.</p>
+</div>
+</div>
+</section>
+<!-- Solution Section (Bento Grid Style) -->
+<section class="py-24 bg-surface-container-lowest/5 border-y border-outline-variant/10">
+<div class="px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-label-md text-label-md text-primary tracking-widest uppercase mb-2">Our Framework</h2>
+<h3 class="font-headline-lg text-headline-lg">Enterprise-grade automation made simple.</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Tool Connectivity -->
+<div class="md:col-span-7 glass-panel p-10 rounded-2xl flex flex-col justify-between">
+<div>
+<span class="font-label-md text-label-md text-primary-fixed mb-4 inline-block bg-primary/20 px-3 py-1 rounded-full">Integrations</span>
+<h4 class="font-headline-md text-headline-md mb-4 text-primary-fixed">Tool Connectivity</h4>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">Deep integrations with ClickUp, Airtable, and your existing stack. We bridge the gap between siloed data pools effortlessly.</p>
+</div>
+<div class="mt-8 flex gap-4 opacity-50 grayscale hover:grayscale-0 transition-all">
+<span class="material-symbols-outlined text-4xl" data-icon="cloud_sync">cloud_sync</span>
+<span class="material-symbols-outlined text-4xl" data-icon="database">database</span>
+<span class="material-symbols-outlined text-4xl" data-icon="api">api</span>
+</div>
+</div>
+<!-- Human-in-the-loop -->
+<div class="md:col-span-5 bg-primary-container p-10 rounded-2xl text-on-primary-container flex flex-col justify-center">
+<span class="material-symbols-outlined text-5xl mb-6" data-icon="rule">rule</span>
+<h4 class="font-headline-md text-headline-md mb-4">Human-in-the-Loop</h4>
+<p class="font-body-md text-body-md opacity-90">Automation with an approval step. You keep full control while AI handles the mundane pre-processing.</p>
+</div>
+<!-- Seamless Fit -->
+<div class="md:col-span-12 glass-panel p-10 rounded-2xl flex flex-col md:flex-row items-center gap-stack-lg">
+<div class="flex-1">
+<h4 class="font-headline-md text-headline-md mb-4">Seamless Fit</h4>
+<p class="font-body-lg text-body-lg text-on-surface-variant">We adapt to your workflows, not the other way around. Our consultancy builds custom adapters for the unique way you do business.</p>
+</div>
+<div class="flex-1 w-full h-32 border border-outline-variant/20 rounded-xl overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent flex items-center justify-center">
+<span class="font-label-md text-label-md text-on-surface-variant animate-pulse">Scanning infrastructure...</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Value/Benefits Section (2x2 Grid with Stats) -->
+<section class="py-24 px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
+<div class="flex flex-col gap-gutter">
+<div class="flex gap-stack-md items-start">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary" data-icon="speed">speed</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-1 text-primary-fixed">0% Repetitive Tasks</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Reclaim 20+ hours per week per team member by automating repetitive document handling and data entry.</p>
+</div>
+</div>
+<div class="flex gap-stack-md items-start">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary" data-icon="trending_up">trending_up</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-1 text-primary-fixed">Scaling Ready</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">10x your volume without 10x the staff. Our infrastructure grows linearly with your ambition.</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-gutter">
+<div class="flex gap-stack-md items-start">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary" data-icon="lock_open">lock_open</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-1 text-primary-fixed">Full Control</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Every automated action waits for your final green light. Security and oversight are baked into every node.</p>
+</div>
+</div>
+<div class="flex gap-stack-md items-start">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-1 text-primary-fixed">Zero Overhaul</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Go live in weeks, not months, with zero process disruption. We work in the background of your current tools.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Box (Premium Linear Gradient) -->
+<section class="py-24 px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div class="relative p-12 md:p-24 rounded-3xl overflow-hidden bg-surface-container border border-outline-variant/20 flex flex-col items-center text-center">
+<div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+<div class="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[radial-gradient(circle,rgba(0,90,194,1)_0%,transparent_70%)] animate-pulse"></div>
+</div>
+<h2 class="font-display text-display mb-stack-md relative z-10">Ready to see how it works?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg max-w-xl relative z-10">
+                    Join a live demo to see AutomateX in action. We'll walk through a real-world multi-tool workflow setup live.
+                </p>
+<button class="bg-primary-container text-on-primary-container px-12 py-5 rounded-full font-headline-md text-headline-md relative z-10 shadow-lg hover:shadow-primary/20 hover:scale-[1.03] transition-all">
+                    Live Demo
+                </button>
+<div class="mt-stack-md text-on-surface-variant font-label-md text-label-md relative z-10">
+                    Limited slots available for Q4 intake
+                </div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-surface border-t border-outline-variant dark:border-outline-variant/20 full-width">
+<div class="w-full py-stack-lg px-margin-mobile md:px-gutter max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-stack-md">
+<div class="flex items-center gap-4">
+<img alt="AutomateX Logo" class="h-10 w-10 object-contain rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBA2QyYP5pRkcx6K7RJozzvF-NYo86Kp-zJeSp0gk-42yuS2eAUzNmtqKsBUBWAszNgUGxTUlZOyUKv1IlNkIWXiG-LRpj2tAxSmHlWaLzEEmFGRoya0Kk0kEZVRBOXzksD5iqZ9kPFj5slrY37sy8qExWzz18C_XBmM4YxLvKoyeSoTXX18WtfXiKd2UAAxFEe2ZUnqIx1CdnIOwJL7FKbbNY7Hx89El3R1wHyhcyE9pYoSN5RKd8bG0ypepEPQ0vvig9-ZXS4sA"/>
+<span class="font-label-md text-label-md font-bold text-on-surface">AutomateX</span>
+</div>
+<div class="flex gap-gutter font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim">
+<a class="hover:text-on-surface dark:hover:text-on-surface transition-colors underline-offset-4 hover:underline" href="#">LinkedIn</a>
+<a class="hover:text-on-surface dark:hover:text-on-surface transition-colors underline-offset-4 hover:underline" href="#">Twitter</a>
+<a class="hover:text-on-surface dark:hover:text-on-surface transition-colors underline-offset-4 hover:underline" href="#">Case Studies</a>
+<a class="hover:text-on-surface dark:hover:text-on-surface transition-colors underline-offset-4 hover:underline" href="#">Privacy</a>
+</div>
+<p class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim">
+                © 2024 AutomateX Consultancy. All rights reserved.
+            </p>
+</div>
+</footer>
+<script>
+        // Micro-interactions and subtle effects
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section > div').forEach(el => {
+                el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body></html>
