@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AutomateX | Eliminate Manual Busywork",
+  title: "Automatoro | Eliminate Manual Busywork",
   description:
     "AI-powered automation that connects the tools your team already uses, cuts manual busywork, and keeps a human in control of every important decision.",
 };

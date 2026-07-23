@@ -68,7 +68,7 @@ export default function Home() {
           <div className="flex items-center gap-2">
             <BotIcon className="h-7 w-7 text-primary" />
             <span className="text-xl font-bold text-on-surface">
-              AutomateX
+              Automatoro
             </span>
           </div>
           <nav className="hidden items-center gap-8 md:flex">
@@ -254,7 +254,7 @@ export default function Home() {
             Ready to see how it works?
           </h2>
           <p className="max-w-xl text-lg leading-8 text-on-surface-variant sm:text-xl">
-            See AutomateX in action with Task Router — a live example of a
+            See Automatoro in action with Task Router — a live example of a
             multi-step automation with a human approval step built in.
           </p>
           <a
@@ -274,7 +274,7 @@ export default function Home() {
           <div className="flex items-center gap-2">
             <BotIcon className="h-6 w-6 text-primary" />
             <span className="font-mono text-base font-bold text-on-surface">
-              AutomateX
+              Automatoro
             </span>
           </div>
           <div className="flex gap-6 text-base text-secondary">
@@ -294,7 +294,7 @@ export default function Home() {
             </a>
           </div>
           <p className="text-base text-secondary">
-            © 2026 AutomateX Consultancy. All rights reserved.
+            © 2026 Automatoro Consultancy. All rights reserved.
           </p>
         </div>
       </footer>
