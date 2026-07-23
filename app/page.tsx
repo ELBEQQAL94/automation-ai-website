@@ -14,8 +14,7 @@ import {
   UserMinusIcon,
 } from "./icons";
 
-// TODO: replace with the live Task Router demo link once the demo is finished
-const DEMO_LINK = "#";
+const DEMO_LINK = "https://task-router-pi.vercel.app/";
 // TODO: replace with a real contact address
 const CONTACT_EMAIL = "hello@example.com";
 
@@ -260,6 +259,8 @@ export default function Home() {
           </p>
           <a
             href={DEMO_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-2 rounded-full bg-primary-container px-10 py-4 text-lg font-medium text-on-primary-container shadow-lg transition-transform hover:scale-[1.02]"
           >
             View the demo
@@ -279,6 +280,8 @@ export default function Home() {
           <div className="flex gap-6 text-base text-secondary">
             <a
               href={DEMO_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               className="transition-colors hover:text-on-surface hover:underline"
             >
               Task Router Demo
