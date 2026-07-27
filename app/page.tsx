@@ -1,3 +1,4 @@
+import { ContactForm } from "./contact-form";
 import { HeroDiagram } from "./hero-diagram";
 import {
   AlertTriangleIcon,
@@ -15,8 +16,6 @@ import {
 } from "./icons";
 
 const DEMO_LINK = "https://task-router-pi.vercel.app/";
-// TODO: replace with a real contact address
-const CONTACT_EMAIL = "hello@example.com";
 
 const problems = [
   {
@@ -124,7 +123,7 @@ export default function Home() {
                 See it in action
               </a>
               <a
-                href={`mailto:${CONTACT_EMAIL}`}
+                href="#contact"
                 className="rounded-full border border-outline-variant px-8 py-4 text-lg font-medium text-on-surface transition-colors hover:bg-surface-container-low"
               >
                 Talk to an expert
@@ -266,6 +265,26 @@ export default function Home() {
             View the demo
           </a>
         </section>
+
+        {/* Contact */}
+        <section
+          id="contact"
+          className="flex scroll-mt-24 flex-col items-center gap-10"
+        >
+          <div className="text-center">
+            <h2 className="mb-2 font-mono text-xs uppercase tracking-widest text-primary sm:text-sm">
+              Get in touch
+            </h2>
+            <h3 className="text-3xl font-semibold tracking-tight text-on-surface sm:text-4xl">
+              Talk to an expert.
+            </h3>
+            <p className="mx-auto mt-3 max-w-lg text-lg leading-8 text-on-surface-variant">
+              Tell us about your workflow and we&apos;ll get back to you
+              shortly.
+            </p>
+          </div>
+          <ContactForm />
+        </section>
       </main>
 
       {/* Footer */}
@@ -287,7 +306,7 @@ export default function Home() {
               Task Router Demo
             </a>
             <a
-              href={`mailto:${CONTACT_EMAIL}`}
+              href="#contact"
               className="transition-colors hover:text-on-surface hover:underline"
             >
               Contact
