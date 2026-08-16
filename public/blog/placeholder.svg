@@ -1,0 +1,18 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#131313" />
+      <stop offset="100%" stop-color="#1c1b1b" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#4edea3" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="120" r="220" fill="#10b981" opacity="0.08" />
+  <circle cx="120" cy="560" r="180" fill="#10b981" opacity="0.06" />
+  <rect x="90" y="255" width="64" height="64" rx="16" fill="url(#accent)" />
+  <text x="90" y="360" font-family="Arial, sans-serif" font-size="56" font-weight="700" fill="#FFFFFF">Automatoro</text>
+  <text x="90" y="410" font-family="Arial, sans-serif" font-size="24" fill="#9CA3AF">Cover image coming soon</text>
+</svg>
