@@ -151,7 +151,7 @@ export default function ServicesPage() {
         </h2>
         <Link
           href="/contact"
-          className="mt-2 rounded-full bg-primary-container px-8 py-4 text-lg font-medium text-on-primary-container transition-transform hover:scale-[1.02]"
+          className="mt-2 cursor-pointer rounded-full bg-primary-container px-8 py-4 text-lg font-medium text-on-primary-container transition-transform hover:scale-[1.02]"
         >
           Talk to an expert
         </Link>

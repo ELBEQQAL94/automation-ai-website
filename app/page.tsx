@@ -85,13 +85,13 @@ export default function Home() {
               href={DEMO_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-primary-container px-8 py-4 text-lg font-medium text-on-primary-container transition-transform hover:scale-[1.02] active:scale-95"
+              className="cursor-pointer rounded-full bg-primary-container px-8 py-4 text-lg font-medium text-on-primary-container transition-transform hover:scale-[1.02] active:scale-95"
             >
               See it in action
             </a>
             <Link
               href="/contact"
-              className="rounded-full border border-outline-variant px-8 py-4 text-lg font-medium text-on-surface transition-colors hover:bg-surface-container-low"
+              className="cursor-pointer rounded-full border border-outline-variant px-8 py-4 text-lg font-medium text-on-surface transition-colors hover:bg-surface-container-low"
             >
               Talk to an expert
             </Link>
@@ -174,7 +174,7 @@ export default function Home() {
           href={DEMO_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-2 rounded-full bg-primary-container px-10 py-4 text-lg font-medium text-on-primary-container shadow-lg transition-transform hover:scale-[1.02]"
+          className="mt-2 cursor-pointer rounded-full bg-primary-container px-10 py-4 text-lg font-medium text-on-primary-container shadow-lg transition-transform hover:scale-[1.02]"
         >
           View the demo
         </a>

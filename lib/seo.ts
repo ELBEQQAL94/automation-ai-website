@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 
 export const SITE_URL = "https://www.automatoro.com";
 
+export const LINKEDIN_URL = "https://www.linkedin.com/company/automatoro/posts/?feedView=all";
+
 export const DEFAULT_OG_IMAGE = {
   url: `${SITE_URL}/opengraph-image`,
   width: 1200,

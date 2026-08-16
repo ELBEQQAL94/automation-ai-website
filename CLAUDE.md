@@ -17,9 +17,11 @@ When adding a new post: find the latest `date` already used across all posts tha
 - **A new standalone page is added**: add it as a bullet under `## Key Resources` in `public/llms.txt` and `public/llms-full.txt`.
 
 ## Blog Cover Images
-1. Raw jpg/jpeg/png cover images go in `public/blog/images/`, named `<post-slug>.jpeg` (or `.png`).
-2. Set the post's frontmatter `coverImage` to `/blog/images/<post-slug>.webp` (note: `.webp`, even though the file on disk is still `.jpeg`/`.png` at this point).
-3. Ask the engineer to run: `node scripts/convert-to-webp.mjs public/blog/images --replace`
+The engineer drops raw cover images into `public/blog/images/` directly - don't ask them to hand you the file.
+
+1. Raw jpg/jpeg/png cover images go in `public/blog/images/`, named `<post-slug>.jpeg` (or `.png`) - `<post-slug>` must exactly match the post's filename in `content/blog/<post-slug>.mdx`.
+2. When a raw image appears there, link it: check `public/blog/images/` for files not yet referenced by any post's `coverImage`, match each to its post by filename/slug, and set that post's frontmatter `coverImage` to `/blog/images/<post-slug>.webp` (note: `.webp`, even though the file on disk is still `.jpeg`/`.png` at this point). Update `coverImageAlt` too if it's still generic/placeholder text. If a filename doesn't cleanly match any post slug, ask which post it belongs to rather than guessing.
+3. Don't touch the raw file or run the conversion yourself - ask the engineer to run: `node scripts/convert-to-webp.mjs public/blog/images --replace` (`--replace` deletes the raw file once the `.webp` exists).
 
 ## Running Commands
 Always ask the engineer to run verification commands themselves - do not run `tsc`, `npm run dev`, `npm run lint`, `npm run build`, `npm install`/`npm i` (or any other package install command), or any other terminal commands automatically. Present the command and ask the engineer to run it and share the output.

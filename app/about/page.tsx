@@ -64,7 +64,7 @@ export default function AboutPage() {
         </p>
         <Link
           href="/contact"
-          className="rounded-full bg-primary-container px-8 py-4 text-lg font-medium text-on-primary-container transition-transform hover:scale-[1.02]"
+          className="cursor-pointer rounded-full bg-primary-container px-8 py-4 text-lg font-medium text-on-primary-container transition-transform hover:scale-[1.02]"
         >
           Talk to an expert
         </Link>

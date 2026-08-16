@@ -4,10 +4,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { SITE_URL, DEFAULT_OG_IMAGE } from "@/lib/seo";
+import { SITE_URL, DEFAULT_OG_IMAGE, LINKEDIN_URL } from "@/lib/seo";
 import "./globals.css";
 
-const GA_MEASUREMENT_ID = "G-59ZK4N2LQY";
+const GA_MEASUREMENT_ID = "G-VZ7NSMLRPD";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -50,6 +50,7 @@ const organizationJsonLd = {
   name: "Automatoro",
   url: SITE_URL,
   email: "elbeqqal.youssef@gmail.com",
+  sameAs: [LINKEDIN_URL],
   description:
     "Automatoro is an AI-powered process automation service that connects the tools teams already use, cuts manual busywork, and keeps a human in control of every important decision.",
   founder: {
