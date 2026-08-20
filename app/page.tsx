@@ -1,6 +1,18 @@
 // app/page.tsx
 import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  SiAirtable,
+  SiClickup,
+  SiDropbox,
+  SiFigma,
+  SiGmail,
+  SiGoogledrive,
+  SiHubspot,
+  SiNotion,
+  SiQuickbooks,
+  SiZapier,
+} from "react-icons/si";
 import { HeroDiagram } from "./hero-diagram";
 import {
   AlertTriangleIcon,
@@ -22,6 +34,19 @@ export const metadata: Metadata = buildPageMetadata({
     "AI-powered automation that connects the tools your team already uses, cuts manual busywork, and keeps a human in control of every important decision.",
   path: "/",
 });
+
+const supportedTools = [
+  { name: "ClickUp", icon: SiClickup },
+  { name: "Airtable", icon: SiAirtable },
+  { name: "Gmail", icon: SiGmail },
+  { name: "HubSpot", icon: SiHubspot },
+  { name: "Google Drive", icon: SiGoogledrive },
+  { name: "Figma", icon: SiFigma },
+  { name: "Notion", icon: SiNotion },
+  { name: "Dropbox", icon: SiDropbox },
+  { name: "Zapier", icon: SiZapier },
+  { name: "QuickBooks", icon: SiQuickbooks },
+];
 
 const problems = [
   {
@@ -101,6 +126,34 @@ export default function Home() {
         <div className="relative rounded-xl border border-outline-variant/40 bg-surface-container-lowest p-6">
           <HeroDiagram />
         </div>
+      </section>
+
+      {/* Supported tools */}
+      <section className="flex flex-col gap-8">
+        <div className="text-center">
+          <h2 className="mb-2 font-mono text-xs uppercase tracking-widest text-primary sm:text-sm">
+            Works With What You Already Use
+          </h2>
+          <h3 className="text-3xl font-semibold tracking-tight text-on-surface sm:text-4xl">
+            Automation across the tools your team runs on.
+          </h3>
+        </div>
+        <div className="marquee-mask relative overflow-hidden">
+          <div className="marquee-track flex w-max gap-4">
+            {[...supportedTools, ...supportedTools].map((tool, index) => (
+              <span
+                key={`${tool.name}-${index}`}
+                className="flex flex-shrink-0 items-center gap-2 rounded-full border border-outline-variant/40 bg-surface-container-low px-6 py-3 text-base font-medium text-on-surface-variant sm:text-lg"
+              >
+                <tool.icon className="h-5 w-5" aria-hidden="true" />
+                {tool.name}
+              </span>
+            ))}
+          </div>
+        </div>
+        <p className="text-center text-base text-on-surface-variant/70">
+          {"Don't see your tool? If it has an API, we can probably connect it."}
+        </p>
       </section>
 
       {/* Problem */}
