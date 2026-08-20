@@ -6,7 +6,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllSlugs, getPostBySlug } from "@/lib/blog";
 import FaqSection from "@/components/shared/FaqSection";
 import AuthorByline from "@/components/blog/AuthorByline";
-import { SITE_URL } from "@/lib/seo";
+import { SITE_URL, resolveTitle } from "@/lib/seo";
 
 const mdxComponents = {
   FaqSection,
@@ -25,9 +25,19 @@ const mdxComponents = {
   ol: (props: React.ComponentProps<"ol">) => (
     <ol className="mb-5 list-decimal space-y-2 pl-6 text-lg leading-8 text-on-surface-variant" {...props} />
   ),
-  a: (props: React.ComponentProps<"a">) => (
-    <a className="font-medium text-primary underline hover:opacity-80" {...props} />
-  ),
+  a: (props: React.ComponentProps<"a">) => {
+    const isExternal =
+      typeof props.href === "string" &&
+      /^https?:\/\//.test(props.href) &&
+      !props.href.includes("automatoro.com");
+    return (
+      <a
+        className="font-medium text-primary underline hover:opacity-80"
+        {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        {...props}
+      />
+    );
+  },
   strong: (props: React.ComponentProps<"strong">) => (
     <strong className="font-semibold text-on-surface" {...props} />
   ),
@@ -55,7 +65,7 @@ export async function generateMetadata({
   const url = `${SITE_URL}/blog/${post.slug}`;
 
   return {
-    title: post.title,
+    title: resolveTitle(post.title),
     description: post.description,
     alternates: {
       canonical: url,

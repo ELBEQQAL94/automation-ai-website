@@ -27,7 +27,7 @@ const problems = [
   {
     icon: ClockIcon,
     title: "Manual Busywork",
-    body: "Data entry shouldn't be your team's full-time job. Reclaim their focus for high-value work.",
+    body: "Copy-pasting client data between your PM tool and your database shouldn't be anyone's job. Reclaim that focus for high-value work.",
   },
   {
     icon: AlertTriangleIcon,
@@ -77,8 +77,9 @@ export default function Home() {
             Eliminate manual busywork. <span className="text-primary">Automatically.</span>
           </h1>
           <p className="mb-8 max-w-lg text-lg leading-8 text-on-surface-variant sm:text-xl sm:leading-9">
-            Connect your tools, automate the retyping, and scale your ops without adding
-            headcount. Our tailored AI workflows do the heavy lifting for you.
+            Connect your tools, stop re-typing the same brief between ClickUp and Airtable,
+            and scale your ops without adding headcount. Our tailored AI workflows do the
+            heavy lifting for you.
           </p>
           <div className="flex flex-wrap gap-4">
             <a
@@ -135,6 +136,9 @@ export default function Home() {
         <p className="max-w-xl text-lg leading-8 text-on-surface-variant">
           Deep tool integrations, a human-in-the-loop approval step on every workflow, and
           automations built around how your team already works - not the other way around.
+        </p>
+        <p className="text-base text-on-surface-variant/80">
+          Already living in ClickUp and Airtable? That's exactly the setup we build around.
         </p>
         <Link
           href="/services"

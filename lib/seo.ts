@@ -13,6 +13,15 @@ export const DEFAULT_OG_IMAGE = {
 };
 
 /**
+ * The root layout's title template ("%s | Automatoro") appends the brand name to every
+ * page title. Titles that already spell out "Automatoro" need to bypass the template via
+ * `{ absolute }`, otherwise the brand name is duplicated in the rendered <title> tag.
+ */
+export function resolveTitle(title: string): Metadata["title"] {
+  return /automatoro/i.test(title) ? { absolute: title } : title;
+}
+
+/**
  * Next.js does not deep-merge `openGraph`/`twitter` across route segments: a page that
  * declares its own `openGraph` object entirely replaces the root layout's (including the
  * image inherited from app/opengraph-image.tsx), leaving the page with no share image.
@@ -34,7 +43,7 @@ export function buildPageMetadata({
   const url = `${SITE_URL}${path}`;
 
   return {
-    title,
+    title: resolveTitle(title),
     description,
     alternates: {
       canonical: url,
