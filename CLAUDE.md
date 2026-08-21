@@ -6,9 +6,9 @@
 Production domain: `https://www.automatoro.com`
 
 ## Blog Publishing Schedule
-New blog posts (`content/blog/*.mdx`) publish at most **2 per day**. A post's `date` frontmatter field controls when it goes live - `lib/blog.ts`'s `isPublished()` hides any post whose `date` is in the future, so you can create/write a post any time without it appearing early.
+New blog posts (`content/blog/*.mdx`) publish at most **1 per day**. A post's `date` frontmatter field controls when it goes live - `lib/blog.ts`'s `isPublished()` hides any post whose `date` is in the future, so you can create/write a post any time without it appearing early.
 
-When adding a new post: find the latest `date` already used across all posts that has fewer than 2 posts on it, and either add to that day (if it only has 1) or roll forward to the next day (if it already has 2). Never assign a `date` that would put a third post on the same day.
+When adding a new post: find the latest `date` already used across all posts, and assign the next day after it. Never assign a `date` that already has a post on it.
 
 ## LLM Reference Files (llms.txt / llms-full.txt)
 `public/llms.txt` and `public/llms-full.txt` are static files, not auto-generated - they go stale unless updated by hand. Update them whenever:

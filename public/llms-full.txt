@@ -46,7 +46,7 @@ Every published post on https://www.automatoro.com/blog, newest first, with comp
 # What Tools Do Marketing Agencies Actually Use Besides ClickUp and Airtable?
 
 Category: Agency Ops
-Date: 2026-08-28
+Date: 2026-09-04
 Author: Youssef Elbeqqal
 URL: https://www.automatoro.com/blog/what-tools-do-marketing-agencies-use-besides-clickup-airtable
 
@@ -75,7 +75,7 @@ The fix isn't collapsing onto a single all-in-one platform and losing what each 
 # Should Your Agency Build Automation In-House or Hire It Out?
 
 Category: Agency Ops
-Date: 2026-08-27
+Date: 2026-09-03
 Author: Youssef Elbeqqal
 URL: https://www.automatoro.com/blog/should-your-agency-build-automation-in-house-or-hire-it-out
 
@@ -104,7 +104,7 @@ If the automation is simple, contained to one tool, and someone already has slac
 # Airtable as a Client Database: Where Agencies Hit a Ceiling
 
 Category: Agency Ops
-Date: 2026-08-27
+Date: 2026-09-02
 Author: Youssef Elbeqqal
 URL: https://www.automatoro.com/blog/airtable-as-client-database-where-agencies-hit-a-ceiling
 
@@ -133,7 +133,7 @@ The answer isn't leaving Airtable - it's connecting it, so the same record that 
 # How Creative Agencies Can Cut Review-Round Turnaround Without Losing Quality Control
 
 Category: Agency Ops
-Date: 2026-08-26
+Date: 2026-09-01
 Author: Youssef Elbeqqal
 URL: https://www.automatoro.com/blog/cut-review-round-turnaround-without-losing-quality-control
 
@@ -162,7 +162,7 @@ This is the same mechanism behind why approval bottlenecks cost agencies billabl
 # ClickUp Automations vs. Custom Workflow Adapters: When Native Automation Isn't Enough
 
 Category: Agency Ops
-Date: 2026-08-26
+Date: 2026-08-31
 Author: Youssef Elbeqqal
 URL: https://www.automatoro.com/blog/clickup-automations-vs-custom-workflow-adapters
 
@@ -188,39 +188,10 @@ If the workflow stays inside ClickUp and follows one clear rule, native automati
 
 ---
 
-# Automating the Boring 80%: A Framework for Agency Ops
-
-Category: Agency Ops
-Date: 2026-08-25
-Author: Youssef Elbeqqal
-URL: https://www.automatoro.com/blog/automating-the-boring-80-percent-agency-ops-framework
-
-Most tasks inside an agency fall into one of two categories: the same steps done the same way every time, or work that genuinely needs judgment. A simple framework for sorting a task list into those two buckets makes it obvious what to automate first and what to leave alone.
-
-Most agency operations work splits into two categories, and the split is usually more lopsided than people assume. A smaller share genuinely needs a person's judgment. A larger share is the same steps, done the same way, for every client, every time.
-
-## The test that sorts the two apart
-
-Ask one question about any recurring task: does the outcome change based on who's doing it, or would two competent people produce the same result every time? If the answer is "it would be the same either way," it's a candidate for automation regardless of how it currently gets done. If the answer depends on judgment, it stays with a person.
-
-## Where agencies usually get this wrong
-
-The common mistake is grouping an entire process - "client reporting," "onboarding," "content approval" - as one unit and deciding whether to automate all of it or none of it. Almost every process is really a mix: mostly repetitive steps with one or two judgment calls embedded inside. Automating the whole thing feels risky. Automating the repetitive 80% and leaving the judgment calls alone usually isn't.
-
-## Running the framework on your own task list
-
-List the recurring tasks for one account over a normal week. Mark each one "same every time" or "depends." The "same every time" pile is almost always bigger than expected, and it's the pile worth automating first - not because it's the most important work, but because it's the lowest-risk place to start.
-
-## What this looks like once it's running
-
-This is the same principle behind human-in-the-loop automation and the broader hiring trap - automate the repeatable 80%, keep a person on the 20% that actually needs one. See how this framework applies in practice across Automatoro's services.
-
----
-
 # What Breaks First When a Marketing Agency Scales Past 10 Clients
 
 Category: Agency Ops
-Date: 2026-08-25
+Date: 2026-08-30
 Author: Youssef Elbeqqal
 URL: https://www.automatoro.com/blog/what-breaks-first-marketing-agency-scales-past-10-clients
 
@@ -246,39 +217,39 @@ Fixing the manual handoffs first - status updates, reporting, approval routing -
 
 ---
 
-# Onboarding New Clients Without the Spreadsheet Chaos
+# Automating the Boring 80%: A Framework for Agency Ops
 
 Category: Agency Ops
-Date: 2026-08-24
+Date: 2026-08-29
 Author: Youssef Elbeqqal
-URL: https://www.automatoro.com/blog/onboarding-new-clients-without-the-spreadsheet-chaos
+URL: https://www.automatoro.com/blog/automating-the-boring-80-percent-agency-ops-framework
 
-Digital agencies typically take one to two weeks to onboard a new client through a long sequence of manual steps: intake forms, asset collection, tool access, project setup. High-performing teams keep this overhead low; the rest lose disproportionate time to it every time a deal closes.
+Most tasks inside an agency fall into one of two categories: the same steps done the same way every time, or work that genuinely needs judgment. A simple framework for sorting a task list into those two buckets makes it obvious what to automate first and what to leave alone.
 
-A new client closes and the real work hasn't even started yet. First comes the checklist: intake forms, brand assets, platform access, contracts, project setup in every tool the team uses. None of it is hard. All of it is easy to get partway through and lose track of.
+Most agency operations work splits into two categories, and the split is usually more lopsided than people assume. A smaller share genuinely needs a person's judgment. A larger share is the same steps, done the same way, for every client, every time.
 
-## A process that's the same every time, run from memory
+## The test that sorts the two apart
 
-Typical digital agency onboarding runs seven to fourteen days, largely because it depends on one person manually working through the same sequence of steps for every new account, with no consistent system checking whether each step actually happened.
+Ask one question about any recurring task: does the outcome change based on who's doing it, or would two competent people produce the same result every time? If the answer is "it would be the same either way," it's a candidate for automation regardless of how it currently gets done. If the answer depends on judgment, it stays with a person.
 
-## Where the overhead actually goes
+## Where agencies usually get this wrong
 
-High-performing teams keep the bulk of their time on client-facing delivery; teams that fall behind end up spending more than half their hours on exactly this kind of administrative overhead instead. Onboarding is usually the single biggest contributor, because it's the one process every new client triggers from scratch.
+The common mistake is grouping an entire process - "client reporting," "onboarding," "content approval" - as one unit and deciding whether to automate all of it or none of it. Almost every process is really a mix: mostly repetitive steps with one or two judgment calls embedded inside. Automating the whole thing feels risky. Automating the repetitive 80% and leaving the judgment calls alone usually isn't.
 
-## What a repeatable onboarding actually looks like
+## Running the framework on your own task list
 
-The fix isn't a more detailed checklist - most agencies already have one. It's making the checklist self-tracking: a new client record creates the project automatically, triggers the intake form, and flags what's still outstanding, instead of relying on someone to remember where things stand.
+List the recurring tasks for one account over a normal week. Mark each one "same every time" or "depends." The "same every time" pile is almost always bigger than expected, and it's the pile worth automating first - not because it's the most important work, but because it's the lowest-risk place to start.
 
-## How this fits with the rest of agency ops
+## What this looks like once it's running
 
-This is the same underlying issue as the manual sync between ClickUp and Airtable - a repeatable process running on memory instead of on the system. See how custom workflow adapters turn a checklist into something that tracks itself.
+This is the same principle behind human-in-the-loop automation and the broader hiring trap - automate the repeatable 80%, keep a person on the 20% that actually needs one. See how this framework applies in practice across Automatoro's services.
 
 ---
 
 # The Real Cost of Manual Campaign Reporting for Small Agencies
 
 Category: Agency Ops
-Date: 2026-08-24
+Date: 2026-08-28
 Author: Youssef Elbeqqal
 URL: https://www.automatoro.com/blog/real-cost-of-manual-campaign-reporting-for-agencies
 
@@ -304,10 +275,39 @@ This is the same shape as the content-calendar handoff problem and the client ap
 
 ---
 
+# Onboarding New Clients Without the Spreadsheet Chaos
+
+Category: Agency Ops
+Date: 2026-08-27
+Author: Youssef Elbeqqal
+URL: https://www.automatoro.com/blog/onboarding-new-clients-without-the-spreadsheet-chaos
+
+Digital agencies typically take one to two weeks to onboard a new client through a long sequence of manual steps: intake forms, asset collection, tool access, project setup. High-performing teams keep this overhead low; the rest lose disproportionate time to it every time a deal closes.
+
+A new client closes and the real work hasn't even started yet. First comes the checklist: intake forms, brand assets, platform access, contracts, project setup in every tool the team uses. None of it is hard. All of it is easy to get partway through and lose track of.
+
+## A process that's the same every time, run from memory
+
+Typical digital agency onboarding runs seven to fourteen days, largely because it depends on one person manually working through the same sequence of steps for every new account, with no consistent system checking whether each step actually happened.
+
+## Where the overhead actually goes
+
+High-performing teams keep the bulk of their time on client-facing delivery; teams that fall behind end up spending more than half their hours on exactly this kind of administrative overhead instead. Onboarding is usually the single biggest contributor, because it's the one process every new client triggers from scratch.
+
+## What a repeatable onboarding actually looks like
+
+The fix isn't a more detailed checklist - most agencies already have one. It's making the checklist self-tracking: a new client record creates the project automatically, triggers the intake form, and flags what's still outstanding, instead of relying on someone to remember where things stand.
+
+## How this fits with the rest of agency ops
+
+This is the same underlying issue as the manual sync between ClickUp and Airtable - a repeatable process running on memory instead of on the system. See how custom workflow adapters turn a checklist into something that tracks itself.
+
+---
+
 # Why Agencies Shouldn't Fully Automate Client-Facing Work (And What to Automate Instead)
 
 Category: Agency Ops
-Date: 2026-08-23
+Date: 2026-08-26
 Author: Youssef Elbeqqal
 URL: https://www.automatoro.com/blog/why-agencies-shouldnt-fully-automate-client-facing-work
 
@@ -336,7 +336,7 @@ For agencies specifically, this usually means automating report generation, draf
 # What to Automate First When Client Approvals Live in ClickUp
 
 Category: Agency Ops
-Date: 2026-08-23
+Date: 2026-08-25
 Author: Youssef Elbeqqal
 URL: https://www.automatoro.com/blog/what-to-automate-first-client-approvals-in-clickup
 
@@ -362,10 +362,39 @@ The gap between "approved" and "everyone knows it's approved" is the same one co
 
 ---
 
+# How Much Time Does Your Team Lose Copy-Pasting Between ClickUp and Airtable?
+
+Category: Agency Ops
+Date: 2026-08-24
+Author: Youssef Elbeqqal
+URL: https://www.automatoro.com/blog/how-much-time-lost-copy-pasting-clickup-airtable
+
+Manually keeping ClickUp and Airtable in sync doesn't show up on anyone's calendar or timesheet, which is exactly why the time it costs never gets questioned. Adding it up per client, per week, usually reveals a bigger number than expected.
+
+Nobody puts "update Airtable to match ClickUp" on their calendar. It's not a task, it's a reflex - something someone does in the gaps between real work, five minutes here and ten minutes there, for every active client. Because it never gets scheduled, it never gets questioned. It just happens, quietly, all week long.
+
+## The task that's everywhere and nowhere
+
+Ask anyone on the team how much time they spend on manual sync and the honest answer is usually "not much, a few minutes here and there." Ask them to actually total it across every client, every status change, every new record, and the number is almost always bigger than either of you expected. Small recurring tasks are the easiest kind to underestimate, because no single instance of them feels worth timing.
+
+## A rough estimate worth actually running
+
+Pick one account and time it for a week: every time someone touches ClickUp and then has to go touch Airtable to match, or the other way around. Multiply by the number of active clients. Most agencies that do this exercise once never do it again, because the number is uncomfortable enough to act on immediately.
+
+## Why this task specifically resists prioritization
+
+It never breaks anything dramatically - it just slowly drifts, a record here, a status there, until someone notices the two tools disagree and has to reconcile them from memory. That slow failure mode is exactly why it stays low priority. Nothing visibly breaks until the data's already wrong.
+
+## What changes when the sync is automatic
+
+This is the same gap covered in why ClickUp and Airtable are the agency stack nobody talks about replacing - the fix isn't picking one tool over the other, it's removing the manual step between them. See how tool integrations and workflow design apply here.
+
+---
+
 # The Content-Calendar Handoff That's Quietly Breaking Your Agency's Delivery
 
 Category: Agency Ops
-Date: 2026-08-22
+Date: 2026-08-23
 Author: Youssef Elbeqqal
 URL: https://www.automatoro.com/blog/content-calendar-handoff-breaking-agency-delivery
 
@@ -391,32 +420,36 @@ This is one instance of a pattern that shows up across approval-heavy agency wor
 
 ---
 
-# How Much Time Does Your Team Lose Copy-Pasting Between ClickUp and Airtable?
+# Why Client Approval Bottlenecks Are Costing Your Agency Billable Hours
 
 Category: Agency Ops
 Date: 2026-08-22
 Author: Youssef Elbeqqal
-URL: https://www.automatoro.com/blog/how-much-time-lost-copy-pasting-clickup-airtable
+URL: https://www.automatoro.com/blog/why-client-approval-bottlenecks-cost-agencies-billable-hours
 
-Manually keeping ClickUp and Airtable in sync doesn't show up on anyone's calendar or timesheet, which is exactly why the time it costs never gets questioned. Adding it up per client, per week, usually reveals a bigger number than expected.
+Agencies track billable hours closely, but the time lost waiting on client approval rarely gets logged anywhere. Multiplied across every account and every review round, that wait is usually the biggest leak in an agency's margin, and it's fixable without changing the creative process itself.
 
-Nobody puts "update Airtable to match ClickUp" on their calendar. It's not a task, it's a reflex - something someone does in the gaps between real work, five minutes here and ten minutes there, for every active client. Because it never gets scheduled, it never gets questioned. It just happens, quietly, all week long.
+Agencies are careful about tracking billable hours - timesheets, utilization reports, project budgets. What almost never gets tracked is the time spent waiting: waiting for a client to review a draft, waiting for sign-off before the next stage can start, waiting for a "looks good, ship it" that takes three days to arrive. That waiting isn't billable, and it isn't free either.
 
-## The task that's everywhere and nowhere
+## The bottleneck nobody puts on a timesheet
 
-Ask anyone on the team how much time they spend on manual sync and the honest answer is usually "not much, a few minutes here and there." Ask them to actually total it across every client, every status change, every new record, and the number is almost always bigger than either of you expected. Small recurring tasks are the easiest kind to underestimate, because no single instance of them feels worth timing.
+A designer finishes a deliverable and sends it for approval. That's the end of their part - and the start of a gap nobody owns. The client doesn't see it as urgent, since it's off their desk. The account manager doesn't see it as their job to chase every day. The work sits, technically "in review," while the team that produced it can't move to the next phase without it.
 
-## A rough estimate worth actually running
+## Where the hours actually go
 
-Pick one account and time it for a week: every time someone touches ClickUp and then has to go touch Airtable to match, or the other way around. Multiply by the number of active clients. Most agencies that do this exercise once never do it again, because the number is uncomfortable enough to act on immediately.
+This shows up in the numbers agencies do track. The target most agencies aim for is a 70% billable to 30% non-billable time split, but creative agencies specifically are falling behind that ideal ratio - and approval limbo is a large, invisible chunk of that non-billable 30%. It's not logged as "waiting," it's logged as nothing at all, which is exactly why it's easy to miss when diagnosing where margin is going.
 
-## Why this task specifically resists prioritization
+## What a faster approval loop actually looks like
 
-It never breaks anything dramatically - it just slowly drifts, a record here, a status there, until someone notices the two tools disagree and has to reconcile them from memory. That slow failure mode is exactly why it stays low priority. Nothing visibly breaks until the data's already wrong.
+The fix usually isn't "ask the client to respond faster" - that's outside your control. It's tightening the loop on your side: a clear stage the work moves into, an automatic notification the moment it's ready for review, and a single place the approval happens instead of a scattered email thread. The difference between an ad-hoc review process and a staged one is often the gap between a week-long wait and a two-to-three day turnaround.
 
-## What changes when the sync is automatic
+## Why the fix isn't removing the approval step
 
-This is the same gap covered in why ClickUp and Airtable are the agency stack nobody talks about replacing - the fix isn't picking one tool over the other, it's removing the manual step between them. See how tool integrations and workflow design apply here.
+The instinct might be to automate the approval away entirely - skip the wait, ship automatically. That's the wrong target. Human-in-the-loop automation keeps the approval, it just removes everything around it that doesn't need a person: chasing the notification, formatting the review link, updating the status once sign-off lands. The client still approves. The busywork around getting them to that point disappears.
+
+## What this looks like in practice
+
+If your agency's bottleneck is the handoff between "work is done" and "client has seen it," that's a workflow problem, not a client problem - see how tool integrations and workflow design apply to exactly this kind of gap.
 
 ---
 
@@ -450,39 +483,6 @@ The fix is a sync layer between the two, not a replacement for either: a new Air
 ## Where this fits into a bigger picture
 
 This is a narrow example of a broader pattern - see how deep tool integrations and workflow design work across ClickUp, Airtable, and whatever else your agency already runs on.
-
----
-
-# Why Client Approval Bottlenecks Are Costing Your Agency Billable Hours
-
-Category: Agency Ops
-Date: 2026-08-21
-Author: Youssef Elbeqqal
-URL: https://www.automatoro.com/blog/why-client-approval-bottlenecks-cost-agencies-billable-hours
-
-Agencies track billable hours closely, but the time lost waiting on client approval rarely gets logged anywhere. Multiplied across every account and every review round, that wait is usually the biggest leak in an agency's margin, and it's fixable without changing the creative process itself.
-
-Agencies are careful about tracking billable hours - timesheets, utilization reports, project budgets. What almost never gets tracked is the time spent waiting: waiting for a client to review a draft, waiting for sign-off before the next stage can start, waiting for a "looks good, ship it" that takes three days to arrive. That waiting isn't billable, and it isn't free either.
-
-## The bottleneck nobody puts on a timesheet
-
-A designer finishes a deliverable and sends it for approval. That's the end of their part - and the start of a gap nobody owns. The client doesn't see it as urgent, since it's off their desk. The account manager doesn't see it as their job to chase every day. The work sits, technically "in review," while the team that produced it can't move to the next phase without it.
-
-## Where the hours actually go
-
-This shows up in the numbers agencies do track. The target most agencies aim for is a 70% billable to 30% non-billable time split, but creative agencies specifically are falling behind that ideal ratio - and approval limbo is a large, invisible chunk of that non-billable 30%. It's not logged as "waiting," it's logged as nothing at all, which is exactly why it's easy to miss when diagnosing where margin is going.
-
-## What a faster approval loop actually looks like
-
-The fix usually isn't "ask the client to respond faster" - that's outside your control. It's tightening the loop on your side: a clear stage the work moves into, an automatic notification the moment it's ready for review, and a single place the approval happens instead of a scattered email thread. The difference between an ad-hoc review process and a staged one is often the gap between a week-long wait and a two-to-three day turnaround.
-
-## Why the fix isn't removing the approval step
-
-The instinct might be to automate the approval away entirely - skip the wait, ship automatically. That's the wrong target. Human-in-the-loop automation keeps the approval, it just removes everything around it that doesn't need a person: chasing the notification, formatting the review link, updating the status once sign-off lands. The client still approves. The busywork around getting them to that point disappears.
-
-## What this looks like in practice
-
-If your agency's bottleneck is the handoff between "work is done" and "client has seen it," that's a workflow problem, not a client problem - see how tool integrations and workflow design apply to exactly this kind of gap.
 
 ---
 
