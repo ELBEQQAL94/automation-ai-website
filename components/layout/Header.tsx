@@ -7,7 +7,6 @@ import { BotIcon, CloseIcon, MenuIcon } from "@/app/icons";
 
 const navLinks = [
   { href: "/services", label: "Services" },
-  { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
 ];
 

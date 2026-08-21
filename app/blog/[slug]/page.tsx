@@ -1,12 +1,18 @@
 // app/blog/[slug]/page.tsx
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { getAllSlugs, getPostBySlug } from "@/lib/blog";
+import { getAllSlugs, getPostBySlug, getRelatedPosts, getReferences } from "@/lib/blog";
 import FaqSection from "@/components/shared/FaqSection";
 import AuthorByline from "@/components/blog/AuthorByline";
+import ArticleCTA from "@/components/blog/ArticleCTA";
+import RelatedArticles from "@/components/blog/RelatedArticles";
+import References from "@/components/blog/References";
 import { SITE_URL, resolveTitle } from "@/lib/seo";
+
+export const dynamic = "force-dynamic";
 
 const mdxComponents = {
   FaqSection,
@@ -76,6 +82,8 @@ export async function generateMetadata({
       url,
       type: "article",
       publishedTime: post.date,
+      modifiedTime: post.date,
+      section: post.category,
       authors: [post.author],
     },
     twitter: {
@@ -103,13 +111,25 @@ export default async function BlogPostPage({
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
+  const relatedPosts = getRelatedPosts(slug);
+  const references = getReferences(post.content);
+  const postUrl = `${SITE_URL}/blog/${post.slug}`;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.description,
-    image: `${SITE_URL}/blog/${post.slug}/opengraph-image`,
+    image: {
+      "@type": "ImageObject",
+      url: `${postUrl}/opengraph-image`,
+      width: 1200,
+      height: 630,
+    },
     datePublished: post.date,
+    dateModified: post.date,
+    inLanguage: "en-US",
+    articleSection: post.category,
     author: {
       "@type": "Person",
       name: post.author,
@@ -117,8 +137,24 @@ export default async function BlogPostPage({
     publisher: {
       "@type": "Organization",
       name: "Automatoro",
+      url: SITE_URL,
     },
-    mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Automatoro",
+      url: SITE_URL,
+    },
+    mainEntityOfPage: postUrl,
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+      { "@type": "ListItem", position: 3, name: post.title, item: postUrl },
+    ],
   };
 
   return (
@@ -129,6 +165,25 @@ export default async function BlogPostPage({
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        />
+
+        <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-1.5 text-sm text-on-surface-variant">
+          <Link href="/" className="hover:text-primary hover:underline">
+            Home
+          </Link>
+          <span aria-hidden="true">/</span>
+          <Link href="/blog" className="hover:text-primary hover:underline">
+            Blog
+          </Link>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page" className="text-on-surface">
+            {post.title}
+          </span>
+        </nav>
 
         <div className="mb-4">
           <AuthorByline author={post.author} date={formatDate(post.date)} linkable />
@@ -157,6 +212,12 @@ export default async function BlogPostPage({
         <div>
           <MDXRemote source={post.content} components={mdxComponents} options={{ blockJS: false }} />
         </div>
+
+        <References references={references} />
+
+        <ArticleCTA />
+
+        <RelatedArticles posts={relatedPosts} />
       </article>
     </main>
   );

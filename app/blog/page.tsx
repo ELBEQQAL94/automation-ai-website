@@ -4,6 +4,8 @@ import { getAllPosts } from "@/lib/blog";
 import BlogList from "@/components/blog/BlogList";
 import { buildPageMetadata } from "@/lib/seo";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = buildPageMetadata({
   title: "Blog",
   description:

@@ -2,6 +2,8 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
 
+export const dynamic = "force-dynamic";
+
 const BASE_URL = "https://www.automatoro.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {

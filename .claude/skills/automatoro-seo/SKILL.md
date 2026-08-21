@@ -37,10 +37,20 @@ Note that `description` is meta-only here (unlike `title`, it isn't rendered as 
 
 - **`app/layout.tsx`** (site-wide): `Organization` (includes `sameAs: [LINKEDIN_URL]`), `WebSite`
 - **`app/services/page.tsx`**: `ProfessionalService` with a nested `OfferCatalog` of `Offer`/`Service` entries
-- **Blog posts (`app/blog/[slug]/page.tsx`)**: `Article`
-- **Any page using `<FaqSection>`** (currently blog posts and the services page): `FAQPage`, generated automatically by `components/shared/FaqSection.tsx` from its `faqs` prop - don't hand-write a separate FAQPage block if you're already using that component
+- **Blog posts (`app/blog/[slug]/page.tsx`)**: `Article` (with `image` as a full `ImageObject`, `dateModified`, `articleSection` from the post's `category`, and `isPartOf` pointing at the site's `WebSite`) plus a separate `BreadcrumbList` (Home → Blog → post title) matching the visible breadcrumb nav rendered above the title
+- **Any page using `<FaqSection>`** (currently the homepage and the services page, each with their own distinct question set - don't reuse the same `faqs` array on both, that's duplicate FAQPage content across two indexed pages): `FAQPage`, generated automatically by `components/shared/FaqSection.tsx` from its `faqs` prop - don't hand-write a separate FAQPage block if you're already using that component. It's also wired into blog `mdxComponents`, so an individual post can drop in `<FaqSection faqs={[...]} />` directly in its MDX body for post-specific questions, though no post does yet.
 
-When adding a new page, match it to the closest existing type above rather than inventing a new JSON-LD shape. If a page has an FAQ section, use `<FaqSection>` - it's the only place FAQPage schema is generated, so skipping it means silently losing that markup.
+When adding a new page, match it to the closest existing type above rather than inventing a new JSON-LD shape. If a page has an FAQ section, use `<FaqSection>` - it's the only place FAQPage schema is generated, so skipping it means silently losing that markup. A page doesn't need its own `dangerouslySetInnerHTML` script tag per JSON-LD object - render one `<script type="application/ld+json">` per schema object (see the blog post page for the two-script pattern: `Article` and `BreadcrumbList` side by side).
+
+Blog post `generateMetadata`'s `openGraph` also sets `modifiedTime` (currently mirrors `post.date` since there's no separate "updated" frontmatter field yet) and `section: post.category` - keep these in sync with the JSON-LD's `dateModified`/`articleSection` if a real last-updated date is ever added to frontmatter.
+
+## Date-gated publishing needs dynamic rendering, not just the date filter
+
+`lib/blog.ts`'s `isPublished()` (`date <= today`) is necessary but not sufficient for the "posts go live on their `date`, no redeploy needed" promise in `CLAUDE.md`. Next.js App Router statically prerenders any route that doesn't use a dynamic API, caching that render until the next build/deploy - so a route calling `getAllPosts()`/`getAllSlugs()` with no dynamic API present will keep serving whatever was published as of the last build, silently hiding posts whose `date` has since arrived.
+
+`app/blog/page.tsx`, `app/blog/[slug]/page.tsx`, `app/sitemap.ts`, and `app/page.tsx` (which features the 3 latest posts via `getAllPosts().slice(0, 3)`) all read post data gated by `isPublished()`, so all four carry `export const dynamic = "force-dynamic";` to force per-request rendering. Any new route that lists or looks up posts (or otherwise depends on "today's date" to decide what's visible) needs the same export - don't rely on the date filter alone.
+
+Note `app/blog/[slug]/page.tsx` would partially work even without this: `generateStaticParams` only bakes in slugs published as of build time, but `dynamicParams` defaults to `true`, so a direct request for a slug published later still renders on demand. The listing page and sitemap have no such fallback - without `force-dynamic` they just serve the stale build.
 
 ## Sitemap & robots
 
@@ -52,15 +62,23 @@ When adding a new page, match it to the closest existing type above rather than 
 
 Both are static files under `public/`, not auto-generated - see the "LLM Reference Files" section in `CLAUDE.md` for the exact update procedure. In short: every new blog post's full text gets appended to `public/llms-full.txt` (newest first), and every new standalone page gets a bullet in `public/llms.txt`'s `## Key Resources`. Both files are also linked from the footer's Resources column. This is the single most likely thing to go stale - check it whenever blog content ships or a new page is added.
 
+Both files share an identical header block (`## Summary`, `## Problems We Solve`, `## Key Resources`, `## Citation Guide`, `## Bio / Details`) before `llms-full.txt` diverges into its blog archive - keep the two headers in sync when editing either. `## Problems We Solve` is the specific pain-point list (manual busywork, cracks in the system, the hiring trap, client approval bottlenecks, onboarding/reporting overhead) mirrored from the homepage's Problem/Benefits sections in `app/page.tsx` - update it if those sections' framing changes, so an LLM citing Automatoro states the actual problem being solved, not just the product category.
+
 ## Blog internal-linking convention
 
 Existing posts cross-link to related posts and the services page inline, mid-sentence, using descriptive anchor text tied to the linked page's topic - not bare "click here" or trailing "read more" links. For example: `[the "hiring trap"](/blog/the-hiring-trap-why-headcount-wont-fix-a-broken-process)` and `[tool integrations and workflow design](/services)`. Every post should link to at least one other post or the services page this way; it's what feeds `getRelatedPosts()`'s category-based matching in `lib/blog.ts` and keeps topic clusters connected for both crawlers and readers.
+
+Beyond the hand-written inline links, `lib/blog.ts`'s `getRelatedPosts(slug, count = 3)` (same-category posts first, backfilled with the newest others if the category doesn't have enough) is wired into `app/blog/[slug]/page.tsx` via `components/blog/RelatedArticles.tsx`, rendered at the bottom of every post automatically - no per-post edit needed to get this backlink block. `app/page.tsx` also surfaces the 3 newest posts (`getAllPosts().slice(0, 3)`, reusing `components/blog/BlogList.tsx`) in a "From The Blog" section, so a freshly published post gets a link from the homepage too, not just `/blog` and the footer.
+
+Every post also ends with `components/blog/ArticleCTA.tsx` - a fixed "Contact us now for more details about your problem" block linking to `/contact`, rendered once in the `[slug]/page.tsx` template rather than per-post MDX, so it can't be forgotten on new posts.
 
 ## Outbound trust-authority citations
 
 Where a post makes a factual or statistical claim that a reader might reasonably question (a stat, a named study, a claim about how a tool or regulation works), link the specific phrase mid-sentence to a real, current, authoritative external source - the same descriptive-anchor-text style as internal links, just pointing off-site. Only add a citation where a real claim in the text supports one; don't insert a source-less sentence just to create a link. Use `WebSearch` to find the actual current URL rather than guessing one from memory - documentation, pricing, and news URLs change.
 
 External links get `target="_blank" rel="noopener noreferrer"` automatically - the `a` component in `app/blog/[slug]/page.tsx`'s `mdxComponents` detects any `href` that starts with `http`/`https` and doesn't contain `automatoro.com`, and adds those attributes only to that subset (internal links keep their current same-tab behavior). Leave these as dofollow (no `rel="nofollow"`): genuine editorial citations to authoritative sources are standard practice as dofollow and are what actually signals trustworthiness to search engines - `nofollow` is meant for paid/sponsored links, not this.
+
+Every inline citation is also surfaced as a visible **References** list at the bottom of the post automatically - `lib/blog.ts`'s `getReferences(content)` regex-extracts every markdown link in the post body pointing off-`automatoro.com` (deduped by URL), and `components/blog/References.tsx` renders them as a numbered source list. This means the reference list is never hand-maintained and can never drift from the actual inline citations - don't add a second, separately-authored "Sources" list; if a post needs a reference, cite it inline per the convention above and it appears in the list for free. A post with zero external citations renders no References section (the component returns `null`).
 
 ## Cover images
 

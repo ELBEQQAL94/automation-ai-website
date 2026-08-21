@@ -5,6 +5,13 @@ This file contains the same curated overview as https://www.automatoro.com/llms.
 ## Summary
 Automatoro is an AI-powered process automation service for B2B teams, built and run by Youssef Elbeqqal. It connects the tools teams already use (ClickUp, Airtable, and most tools with an API), automates repetitive manual work like data entry and handoffs, and keeps a human approving anything client-facing before it ships. It is early-stage and intentionally small - no account managers, direct access to whoever builds your workflow.
 
+## Problems We Solve
+- Manual busywork: teams re-typing the same client or project data between a task tool (ClickUp) and a database tool (Airtable) because nothing keeps the two in sync.
+- Cracks in the system: dropped handoffs and missed deadlines caused by manual, error-prone steps between tools or team members.
+- The hiring trap: agencies and ops teams defaulting to headcount to absorb more volume, instead of fixing the underlying manual process that doesn't scale.
+- Client approval bottlenecks: work stalling in review/approval loops because there's no automated, trackable handoff between "ready for review" and "approved to ship."
+- Onboarding and reporting overhead: new-client setup and recurring campaign/status reporting done by hand from scratch each time instead of from a repeatable, automated workflow.
+
 ## Key Resources
 - Homepage: https://www.automatoro.com
 - Services: https://www.automatoro.com/services

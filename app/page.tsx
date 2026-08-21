@@ -25,8 +25,13 @@ import {
   UserMinusIcon,
 } from "./icons";
 import { buildPageMetadata } from "@/lib/seo";
+import { getAllPosts } from "@/lib/blog";
+import BlogList from "@/components/blog/BlogList";
+import FaqSection from "@/components/shared/FaqSection";
 
 const DEMO_LINK = "https://task-router-pi.vercel.app/";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Automatoro | Eliminate Manual Busywork",
@@ -66,6 +71,34 @@ const problems = [
   },
 ];
 
+const faqs = [
+  {
+    question: "Is this fully autonomous AI?",
+    answer:
+      "No. Every automated workflow pauses for your approval before anything client-facing goes out - Automatoro augments your process, it doesn't replace human judgment on anything that matters.",
+  },
+  {
+    question: "Who is Automatoro built for?",
+    answer:
+      "Growing teams and agencies running on tools like ClickUp and Airtable who are hitting a scaling wall - too much manual handoff and re-typing between systems to keep adding volume by hand.",
+  },
+  {
+    question: "How is this different from just hiring more people?",
+    answer:
+      "Headcount absorbs busywork without fixing it - the same manual handoffs just get spread across more people. Automatoro removes the repetitive work itself, so volume can grow without payroll scaling in lockstep.",
+  },
+  {
+    question: "What if I don't use ClickUp or Airtable?",
+    answer:
+      "Those are just the most common stack we see. If your tool has an API, or an existing Zapier/Make connection, it can likely be integrated too.",
+  },
+  {
+    question: "How do I get started?",
+    answer:
+      "Book a discovery call through the contact page. We map your current process first, then scope what to automate and how long it'll take.",
+  },
+];
+
 const benefits = [
   {
     icon: GaugeIcon,
@@ -90,6 +123,8 @@ const benefits = [
 ];
 
 export default function Home() {
+  const latestPosts = getAllPosts().slice(0, 3);
+
   return (
     <main className="flex w-full max-w-5xl flex-col gap-20 px-6 py-16 sm:gap-24 sm:px-8 sm:py-24 lg:px-12">
       {/* Hero */}
@@ -217,6 +252,32 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* FAQ */}
+      <FaqSection faqs={faqs} />
+
+      {/* Latest from the blog */}
+      {latestPosts.length > 0 && (
+        <section className="flex flex-col gap-8">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h2 className="mb-2 font-mono text-xs uppercase tracking-widest text-primary sm:text-sm">
+                From The Blog
+              </h2>
+              <h3 className="text-3xl font-semibold tracking-tight text-on-surface sm:text-4xl">
+                Fresh thinking on process automation.
+              </h3>
+            </div>
+            <Link
+              href="/blog"
+              className="font-medium text-primary underline hover:opacity-80"
+            >
+              View all posts
+            </Link>
+          </div>
+          <BlogList posts={latestPosts} />
+        </section>
+      )}
 
       {/* CTA */}
       <section className="relative flex flex-col items-center gap-4 overflow-hidden rounded-3xl border border-outline-variant/30 bg-surface-container p-8 text-center sm:p-12 md:p-16 lg:p-20">

@@ -66,6 +66,27 @@ export function getPostBySlug(slug: string): BlogPost | null {
   return { ...toMeta(slug, data), content };
 }
 
+export type Reference = {
+  text: string;
+  url: string;
+};
+
+const MARKDOWN_LINK_RE = /(?<!!)\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+
+export function getReferences(content: string): Reference[] {
+  const seen = new Set<string>();
+  const references: Reference[] = [];
+
+  for (const match of content.matchAll(MARKDOWN_LINK_RE)) {
+    const [, text, url] = match;
+    if (url.includes("automatoro.com") || seen.has(url)) continue;
+    seen.add(url);
+    references.push({ text, url });
+  }
+
+  return references;
+}
+
 export function getRelatedPosts(slug: string, count = 3): BlogPostMeta[] {
   const current = getPostBySlug(slug);
   if (!current) return [];

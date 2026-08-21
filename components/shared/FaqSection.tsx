@@ -34,13 +34,29 @@ export default function FaqSection({
       <h2 className="mb-6 text-2xl font-medium text-on-surface">{heading}</h2>
       <div className="flex flex-col gap-4">
         {faqs.map((faq) => (
-          <div
+          <details
             key={faq.question}
-            className="rounded-xl border border-outline-variant/30 bg-surface-container-low p-5"
+            className="group rounded-xl border border-outline-variant/30 bg-surface-container-low p-5"
           >
-            <h3 className="mb-1 font-semibold text-primary">{faq.question}</h3>
-            <p className="text-sm leading-6 text-on-surface-variant">{faq.answer}</p>
-          </div>
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-primary marker:content-none [&::-webkit-details-marker]:hidden">
+              {faq.question}
+              <svg
+                viewBox="0 0 24 24"
+                width={20}
+                height={20}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+                className="shrink-0 text-on-surface-variant transition-transform duration-200 group-open:rotate-180"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </summary>
+            <p className="mt-3 text-sm leading-6 text-on-surface-variant">{faq.answer}</p>
+          </details>
         ))}
       </div>
     </section>
