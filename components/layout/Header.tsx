@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { BotIcon, CloseIcon, MenuIcon } from "@/app/icons";
 
 const navLinks = [
@@ -10,8 +11,13 @@ const navLinks = [
   { href: "/blog", label: "Blog" },
 ];
 
+function isActive(pathname: string, href: string) {
+  return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-outline-variant/40 bg-surface/80 backdrop-blur-md">
@@ -25,7 +31,12 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-base text-on-surface-variant transition-colors hover:text-primary"
+              aria-current={isActive(pathname, link.href) ? "page" : undefined}
+              className={`text-base transition-colors hover:text-primary ${
+                isActive(pathname, link.href)
+                  ? "font-semibold text-primary"
+                  : "text-on-surface-variant"
+              }`}
             >
               {link.label}
             </Link>
@@ -58,7 +69,12 @@ export default function Header() {
                 <Link
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="block text-base text-on-surface-variant transition-colors hover:text-primary"
+                  aria-current={isActive(pathname, link.href) ? "page" : undefined}
+                  className={`block text-base transition-colors hover:text-primary ${
+                    isActive(pathname, link.href)
+                      ? "font-semibold text-primary"
+                      : "text-on-surface-variant"
+                  }`}
                 >
                   {link.label}
                 </Link>
