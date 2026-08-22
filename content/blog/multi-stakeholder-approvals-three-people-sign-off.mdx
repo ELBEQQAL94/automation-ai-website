@@ -1,0 +1,63 @@
+---
+title: "Multi-Stakeholder Approvals: When Three People Have to Sign Off Before a Client Sees It"
+description: "A single-approver fix doesn't hold up once legal, a manager, and a VP all need to weigh in. Multi-stakeholder approval has its own failure mode."
+date: "2026-09-08"
+coverImage: "/blog/placeholder.svg"
+coverImageAlt: "Multi-stakeholder approval workflows for agencies - Automatoro blog"
+summary: "When three stakeholders all need to sign off before work ships, the notification-and-status fix that works for a single approver stops being enough. The real failure mode is diffusion of responsibility: everyone assumes someone else already said yes. Naming a single current blocker and sequencing gating approvals ahead of parallel ones fixes what a group thread can't."
+category: "Agency Ops"
+author: "Youssef Elbeqqal"
+---
+
+Some approvals have one decision maker. Others have three: a marketing manager,
+legal or compliance, and a VP who all need to weigh in before anything reaches the
+client's actual customer. That's not the same problem as a single slow approver, and
+it doesn't have the same fix.
+
+## Why the single-approver fix doesn't cover this
+
+Notifying one person the moment work is ready, then tracking one status change,
+solves the bottleneck when [one person holds the
+decision](/blog/what-to-automate-first-client-approvals-in-clickup). With three
+stakeholders on the same approval, the open question isn't just "has anyone looked
+at this," it's "who exactly is the reason this hasn't shipped yet" - and a group
+thread rarely answers that.
+
+## The diffusion-of-responsibility problem
+
+This has a name in social psychology, and it's well documented outside of approval
+workflows too: [in the classic Darley and Latané experiment, 85% of people helped
+when they thought they were the only one who could, but only 31% did when they
+believed others were also in a position to
+act](https://thedecisionlab.com/reference-guide/psychology/diffusion-of-responsibility).
+The same page notes how this shows up at work: accountability disappearing into "a
+cloud of shared emails, vague roles, and endless CCs." A three-person approval
+thread is exactly that setup - each stakeholder can reasonably assume one of the
+other two already said yes.
+
+## Sequential vs. parallel, and why it matters
+
+Not every stakeholder needs to review at the same time. If legal or compliance can
+disqualify something outright, that review should gate the process first, before the
+marketing manager and VP spend time on a version that might not survive it. Reviews
+that are genuinely independent of each other, like a VP's brand-fit call and a
+manager's tactical read, can run in parallel once the gating review clears. Treating
+every approval as either fully sequential or fully parallel wastes rounds either way.
+
+## What actually fixes this
+
+The fix isn't a bigger notification, it's a specific one: track a single named
+current blocker at each stage, not a blanket ping to everyone on the thread, and
+escalate to that person specifically once they've been the blocker past some
+threshold. Everyone reviewing the same canonical version, instead of forked copies
+passed around by email, removes the other common failure: sign-off on a version
+that's already out of date.
+
+## How this fits with the rest of agency ops
+
+This is a sharper version of [the same approval bottleneck that costs agencies
+billable hours](/blog/why-client-approval-bottlenecks-cost-agencies-billable-hours) -
+the more stakeholders in the loop, the more it needs explicit ownership instead of
+implicit trust that someone else has it covered. See how [workflow
+design](/services) handles approval routing with more than one decision maker in the
+loop.
