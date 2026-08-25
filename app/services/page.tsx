@@ -34,7 +34,7 @@ const faqs = [
 ];
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Automation Services | Tool Integration & Human-in-the-Loop Workflows",
+  title: "Tool Integration & Human-in-the-Loop Automation",
   description:
     "Deep tool integrations, human-in-the-loop workflow automation, and custom adapters built around how your team already works. See the framework.",
   path: "/services",

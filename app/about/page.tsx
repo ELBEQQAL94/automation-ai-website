@@ -6,7 +6,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "About Automatoro",
   description:
-    "Automatoro is a hands-on automation service run by Youssef Elbeqqal - no account managers, no handoffs, direct access to whoever is building your workflow.",
+    "Automatoro is a hands-on automation service run by Youssef Elbeqqal - no account managers, no handoffs, direct access to whoever builds your workflow.",
   path: "/about",
 });
 
