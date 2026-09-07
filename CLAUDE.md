@@ -31,9 +31,9 @@ New blog posts (`content/blog/*.mdx`) publish at most **1 per day**. A post's `d
 When adding a new post: find the latest `date` already used across all posts, and assign the next day after it. Never assign a `date` that already has a post on it.
 
 ## LLM Reference Files (llms.txt / llms-full.txt)
-`public/llms.txt` and `public/llms-full.txt` are static files, not auto-generated - they go stale unless updated by hand. Update them whenever:
+`public/llms.txt` and `public/llms-full.txt` are static files, not auto-generated - they go stale unless updated by hand. Update them automatically, without asking first, whenever:
 
-- **A new blog post is published**: add its full text (title as `# heading`, then `Category:`/`Date:`/`Author:`/`URL:` lines, then the summary, then the full body) to `public/llms-full.txt`, newest post first (right after the header section, before the previously-first post).
+- **A new blog post is published**: add its full text (title as `# heading`, then `Category:`/`Date:`/`Author:`/`URL:` lines, then the summary, then the full body with markdown links converted to `text (plain URL)` form) to `public/llms-full.txt`, newest post first (right after the header section, before the previously-first post). `llms.txt` itself doesn't list individual posts, it only links to `llms-full.txt` - leave it alone for a plain new post.
 - **A new standalone page is added**: add it as a bullet under `## Key Resources` in `public/llms.txt` and `public/llms-full.txt`.
 
 ## Blog Cover Images
