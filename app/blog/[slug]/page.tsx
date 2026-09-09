@@ -205,7 +205,6 @@ export default async function BlogPostPage({
             className="object-cover"
             sizes="(min-width: 768px) 768px, 100vw"
             priority
-            unoptimized
           />
         </div>
 

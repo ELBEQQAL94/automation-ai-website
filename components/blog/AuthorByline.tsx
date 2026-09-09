@@ -29,7 +29,6 @@ export default function AuthorByline({
           fill
           className="object-cover"
           sizes={`${dimension}px`}
-          unoptimized
         />
       </div>
       <p className="text-sm text-on-surface-variant">

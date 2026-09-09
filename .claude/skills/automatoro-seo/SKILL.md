@@ -1,6 +1,6 @@
 ---
 name: automatoro-seo
-description: Automatoro's actual implemented SEO strategy and conventions on www.automatoro.com - metadata pattern, title-template collision guard, meta-description hygiene, JSON-LD types in use, sitemap/robots setup, llms.txt/llms-full.txt maintenance, blog internal-linking and outbound-citation conventions, and the cover-image pipeline. Use when adding a new page, publishing a blog post, or auditing this specific site's SEO - not a generic Next.js SEO tutorial (see nextjs-seo / llm-seo for that).
+description: Automatoro's actual implemented SEO strategy and conventions on www.automatoro.com - metadata pattern, title-template collision guard, meta-description hygiene, the on-page TL;DR/summary field, JSON-LD types in use, sitemap/robots setup, llms.txt/llms-full.txt maintenance, blog internal-linking and outbound-citation conventions, the cover-image pipeline, and Image-optimization/caching conventions. Use when adding a new page, publishing a blog post, or auditing this specific site's SEO - not a generic Next.js SEO tutorial (see nextjs-seo / llm-seo for that).
 ---
 
 # Automatoro SEO Strategy
@@ -32,6 +32,12 @@ Every page's `description` (both `buildPageMetadata` calls and blog post frontma
 Note that `description` is meta-only here (unlike `title`, it isn't rendered as visible page content), so trimming an over-length description is a safe, low-risk edit - it doesn't touch an H1 or any on-page copy the way a title rewrite would.
 
 `title` length is a separate, higher-risk concern: blog post `title` is used as both the `<title>` tag and the on-page H1 (`app/blog/[slug]/page.tsx` renders `{post.title}` directly in an `<h1>`), so a title that runs long once the `" | Automatoro"` template suffix (14 chars) is added should be reported, not silently rewritten - shortening it changes a visible, published headline, not just an invisible meta tag.
+
+## The `summary` field is a rendered TL;DR, not just internal metadata
+
+Frontmatter `summary` does triple duty: it's copied into `llms-full.txt`'s per-post entry, it feeds `RelatedArticles`/related-post previews, and - unlike `description` - it's also rendered directly on the page. `app/blog/[slug]/page.tsx` puts it in a bordered "TL;DR" box right below the H1, above the fold and before the cover image, so it's the first thing both a skimming reader and an AI crawler extracting the page see.
+
+This means `summary` should read as a standalone answer to "what does this post argue," not a teaser that depends on reading further - avoid the common trap of writing it like a second, longer meta description. This is also the highest-value spot on the page for AI answer engines (ChatGPT, Perplexity, Google AI Overviews) to lift a direct quote, so state the post's actual conclusion or finding in the first sentence rather than easing into it. Unlike `description`, `summary` has no hard length ceiling since it isn't truncated in a search snippet, but keep it to 2-3 sentences - the TL;DR box is meant to be read in a glance, not as a second intro paragraph.
 
 ## JSON-LD in use
 
@@ -83,6 +89,12 @@ Every inline citation is also surfaced as a visible **References** list at the b
 ## Cover images
 
 Raw jpg/jpeg/png cover images get converted via `node scripts/convert-to-webp.mjs public/blog/images --replace` (run by the engineer, not automatically - this workspace's rule is code-only, no shell execution). `--replace` deletes the source file once the `.webp` exists. Frontmatter's `coverImage` path always points at the `.webp`, even mid-conversion when only the raw file exists on disk yet. See the `blog-cover-image` skill for the full step-by-step.
+
+## Image optimization and caching
+
+Every `next/image` `<Image>` on the site (blog post cover in `app/blog/[slug]/page.tsx`, `components/blog/AuthorByline.tsx`, `components/blog/BlogList.tsx` thumbnails) must **not** set the `unoptimized` prop. `unoptimized` bypasses Next.js's built-in Image Optimization API entirely - the browser gets served the raw source file with no resizing, no avif/webp format negotiation, and no `Cache-Control`/`immutable` response caching from the optimizer. Leaving it off lets Next.js generate a right-sized, modern-format variant per device and cache that response, which is a direct win for LCP (the largest content on most blog posts is the cover image) and therefore for Core Web Vitals, which factors into search ranking.
+
+This only works correctly when `sizes` is accurate for how the image actually renders (already the convention on all three components above - check `sizes` against the component's actual responsive breakpoints when adding a new `<Image>`, not just default to a wide value). A new image usage that copies an old `unoptimized` pattern, or that's missing `sizes`, should be flagged and fixed rather than left as-is.
 
 ## Footer & nav link architecture
 

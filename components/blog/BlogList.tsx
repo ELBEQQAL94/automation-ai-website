@@ -32,7 +32,6 @@ export default function BlogList({ posts }: { posts: BlogPostMeta[] }) {
               fill
               className="object-cover"
               sizes="(min-width: 640px) 50vw, 100vw"
-              unoptimized
             />
           </div>
           <div className="flex flex-1 flex-col gap-3 p-6">
