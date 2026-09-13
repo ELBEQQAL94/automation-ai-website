@@ -2,14 +2,11 @@
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  ...buildPageMetadata({
-    title: "Terms of Service",
-    description: "The terms that govern use of Automatoro's website and services.",
-    path: "/terms",
-  }),
-  robots: { index: false, follow: false },
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: "Terms of Service",
+  description: "The terms that govern use of Automatoro's website and services.",
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

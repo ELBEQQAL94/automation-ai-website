@@ -2,14 +2,11 @@
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  ...buildPageMetadata({
-    title: "Privacy Policy",
-    description: "How Automatoro collects, uses, and protects your information.",
-    path: "/privacy-policy",
-  }),
-  robots: { index: false, follow: false },
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: "Privacy Policy",
+  description: "How Automatoro collects, uses, and protects your information.",
+  path: "/privacy-policy",
+});
 
 export default function PrivacyPolicyPage() {
   return (
