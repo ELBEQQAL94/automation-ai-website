@@ -1,0 +1,60 @@
+---
+title: "A Simple Test for What to Automate vs. What Needs a Human"
+description: "A two-question test for deciding whether an agency task is safe to automate, and why 'this task is repeatable' isn't enough of an answer once a client sees the output."
+date: "2026-09-19"
+coverImage: "/blog/placeholder.svg"
+coverImageAlt: "What to automate vs what needs a human at a marketing agency - Automatoro blog"
+summary: "A task is safe to automate when it's repeatable and a mistake in it is cheap to fix, but for agency work that second question needs a stricter answer: if a client ever sees the output, treat the cost of a mistake as high regardless of how routine the task looks. Automate the repetition behind that output, keep a human on anything a client's eyes land on."
+category: "Workflow Design"
+author: "Youssef Elbeqqal"
+---
+
+Most automation frameworks score a task on two axes: how repeatable it is, and how
+expensive a mistake in it would be. High repeat, low mistake cost, automate it.
+Low repeat, high mistake cost, leave it to a person. [RedHub AI's back-office
+framework](https://blog.redhub.ai/back-office-tasks-to-automate) sums up the rule in
+one line: automate the repetition, keep the judgment.
+
+## Where the test needs a stricter rule for agencies
+
+That two-axis test works fine for internal admin work, but it breaks down the moment
+a task's output is something a client actually reads. A weekly status email is
+repeatable and looks low-risk by the framework's own logic, right up until it goes
+out with the wrong client's name in it or a number that doesn't match what was
+actually delivered. The mistake is cheap to produce and expensive to have happened.
+For agency work, the fix is to stop scoring "cost of a mistake" on the task itself
+and score it on who sees the result: if a client's eyes land on the output, the cost
+defaults to high no matter how routine the underlying steps are. That's the same
+logic behind [why agencies shouldn't fully automate client-facing
+work](/blog/why-agencies-shouldnt-fully-automate-client-facing-work) and [what human-in-the-loop
+automation actually means](/blog/human-in-the-loop-automation-explained) in practice:
+automate what builds the report, keep a person on what sends it.
+
+## The harder problem is finding the task at all
+
+[Summit Trails' Wendy Kinney](https://summittrails.com/blog/how-to-know-what-to-automate-in-operations/)
+points at the actual bottleneck in this process: "the criteria are easy and widely
+known. The hard part is locating those tasks, because they are blended into roles and
+hidden from org charts." An account manager's job title doesn't tell you they spend
+four hours a week retyping the same client fields into two different tools. That work
+only shows up when someone tracks what a role actually does hour to hour, not what
+its title implies.
+
+## Applying it to agency ops specifically
+
+Run the test in two passes. First, list what a given role actually does in a normal
+week, not what the job description says. Second, for each item, ask whether a client
+ever sees the direct output. If yes, that step stays human no matter how repeatable
+it is, but the steps that feed into it (pulling status from ClickUp, pulling numbers
+from Airtable, formatting the draft) are exactly the kind of [copy-paste work worth
+automating first](/blog/how-much-time-lost-copy-pasting-clickup-airtable). If no,
+score it on repeatability and mistake cost like any other back-office task.
+
+## What this changes in practice
+
+This is the same principle behind [Automatoro's framework for automating the boring
+80% of agency ops](/blog/automating-the-boring-80-percent-agency-ops-framework): the
+automatable 80% is everything that happens before someone is ready to hit send. The
+client-facing moment itself was never part of that 80%. Run a role through this
+two-pass test before deciding it's "too client-facing to touch," and [see how
+workflow design draws that line in practice](/services).

@@ -30,6 +30,31 @@ Before writing any new blog post or other long-form content (and when editing ex
 
 Humanizer fixes surface style, but posts also read as generic AI output for a deeper reason: there's no real opinion or lived detail behind them, just a synthesis of what research says someone in that situation should do. Fix that at the source, before drafting. When a Reddit post (or other real source) is the seed for an article, pull the article's specific detail from that source itself - the exact complaint, the phrasing the poster used, the scenario they described - and write the draft anchored to that, plus Automatoro's own take on it (agree, push back, or add the nuance the poster missed). Don't paraphrase the source into generic "agencies often struggle with X" framing and don't invent a lived detail that isn't in the source or from the engineer. If the source material is thin on specifics, say so rather than backfilling with plausible-sounding invented detail.
 
+## Pre-Writing Research & Quality Bar
+Before drafting any new blog post (run this before the humanizer pass above, not instead of it):
+
+1. **Research the topic.** Search the primary keyword and read the top 3-5 ranking pages. Note what they cover, what they miss, and where they're too vague to actually help an agency owner or ops manager act on it. That gap - a missing number, a skipped step, a blurred distinction - becomes the article's actual reason to exist, not just a keyword to rank for. This step cannot be skipped or replaced with assumption.
+2. **Anchor it to a real source or detail.** Per "Write Like a Human, Not a Chatbot" above - a Reddit thread, a specific complaint, or the engineer's own take that agrees, pushes back, or adds nuance the source missed. If nothing specific is available, say so rather than inventing one.
+3. **Write in plain language.** Short sentences, concrete examples, jargon explained inline - don't assume the reader already knows RevOps or workflow-automation shorthand. If Maya (agency owner, no dedicated ops hire) couldn't follow a paragraph on a first read, rewrite it.
+4. **Confirm the pillar and the hub link.** Map the post to one of the five content pillars above, and if it's pillar 1-4, plan at least one link into the Automation Philosophy hub (pillar 5) before publishing - this doesn't happen automatically via `getRelatedPosts()`.
+
+This applies to every new post. It does not apply retroactively to posts already published unless they're being edited for another reason anyway.
+
+## Keyword Research Workflow
+Two external tools support blog topic research. Both live outside this repo on purpose and are never pushed into `automation-ai-website` - see each tool's own CLAUDE.md for what it's for and its own rules.
+
+- **`automatoro-keywords-filter`** (`~/Desktop/space/workspace/learning-ai/automatoro-keywords-filter/`) - cleans a raw competitor keyword-gap export (Semrush/Ubersuggest), dropping high-competition and low-volume keywords. Its only job is filtering. This is a dedicated instance for this blog only - MoneyFlow has its own separate copy at `~/Desktop/space/workspace/keywords-filter/`; don't repoint either project at the other's instance.
+- **`automatoro-covered-keywords`** (`~/Desktop/space/workspace/learning-ai/automatoro-covered-keywords/`) - tracks which keywords have already been written about on this blog, so a topic doesn't get resurfaced or handed to an LLM twice. `covered_keywords.csv` holds one keyword per line, seeded from every published post title (not exhaustive - filled in further over time as matching keywords turn up in new research). This is a separate instance from MoneyFlow's `covered-keywords` tool - same code, its own CSV.
+
+Workflow when picking a new blog topic from a keyword-gap export:
+1. Clean the raw export with `automatoro-keywords-filter`.
+2. Exclude branded queries about the competitor the gap export was built against (login, careers, pricing, name variants) - they're about that competitor's product, not a topic Automatoro can inform on.
+3. Take the next highest-volume keyword in the cleaned CSV that isn't already in `automatoro-covered-keywords`' `covered_keywords.csv`.
+4. Check nearby rows in the same file for near-duplicate phrasings of the same topic (e.g. several variants of "clickup airtable sync breaking") - one article should satisfy the whole cluster, not just the one exact keyword string, to avoid keyword cannibalization (two of our own pages competing for the same query).
+5. One keyword is enough to start an article, but don't treat it as the whole SEO strategy - it only tells you a topic exists, not whether the article will get clicks. Before writing, work out: the real search intent behind the keyword, the related questions a reader in that intent would also search, whether Automatoro can realistically rank against the current top results (SEO Difficulty is a proxy, not gospel), and a specific, clickable title angle rather than a flat restatement of the keyword. Aim for one article that answers 5-20 closely related queries clustered around the primary keyword, not one article per keyword. Weigh this against volume too: a lower-volume, long-tail keyword that closely matches Maya's or Deja's actual trigger moment is often a better target than a high-volume, highly competitive head term that's a poor persona fit or unrealistic to rank for.
+6. Confirm the topic fits one of the five content pillars and stays in Automatoro's operator voice. Then run the "Pre-Writing Research & Quality Bar" section above before drafting.
+7. Mark it covered and clean the gap file in the same step: `uv run covered-keywords "kw one,kw two,kw three" --gap-file "/path/to/gap_clean.csv"` (run from inside `automatoro-covered-keywords/`) - appends every variant the article satisfies to `covered_keywords.csv` and removes those rows from the gap CSV together, so they don't resurface separately.
+
 ## Blog Publishing Schedule
 New blog posts (`content/blog/*.mdx`) publish **every 2 days**. A post's `date` frontmatter field controls when it goes live - `lib/blog.ts`'s `isPublished()` hides any post whose `date` is in the future, so you can create/write a post any time without it appearing early.
 

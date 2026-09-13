@@ -1,0 +1,50 @@
+---
+title: "Automation That Just Moves the Bottleneck Somewhere Else"
+description: "AI coding assistants generated 98% more pull requests and code review time went up 91%. The bottleneck didn't disappear, it moved, and got worse on the way."
+date: "2026-10-21"
+coverImage: "/blog/placeholder.svg"
+coverImageAlt: "A bottleneck shifting from one stage of a workflow to the next after automation - Automatoro blog"
+summary: "A Faros AI survey of 10,000 developers found AI coding assistants generated 98% more pull requests, with those bundles 154% larger, and code review time up 91%: the bottleneck didn't go away, it moved from writing code to reviewing it, and got worse in the move. Goldratt's Theory of Constraints explains why: speeding up a step that isn't the actual constraint just piles more work in front of whatever the real constraint is, and agency automation hits the same trap when the human review step isn't built to absorb the faster, bigger flow arriving at it."
+category: "Workflow Design"
+author: "Youssef Elbeqqal"
+---
+
+[A Faros AI survey of 10,000 developers](https://onlydeadfish.co.uk/2026/07/17/why-ai-shifts-bottlenecks-rather-than-remove-them/)
+found AI coding assistants drove pull requests up 98%, with those code bundles 154%
+larger, and code review time up 91%. Writing code got faster. The team wasn't any
+less busy, because the bottleneck moved from generating code to reviewing it, and
+the review step wasn't built for a 154% bigger batch arriving 98% more often.
+
+## The principle behind why this happens
+
+Eliyahu Goldratt's Theory of Constraints puts it plainly: improvements made anywhere
+besides the actual bottleneck are an illusion. Speeding up a step that isn't the
+real constraint doesn't raise total output, it just moves work faster toward
+whatever the real constraint is, and piles up in front of it faster than before.
+
+## The sharper version of this risk
+
+Neil Perkin's piece pairs the coding example with Three Mile Island: automation
+removed the routine manual work, but it shifted the hardest judgment call to
+operators facing "hundreds of competing alarms, flashing warning lights," at the
+exact moment they had the least time to think it through. The bottleneck didn't
+just move to a slower point, it moved to the worst possible one, a person forced to
+decide fast on something automation made faster to arrive but no easier to judge.
+
+## Why this matters for client-facing automation specifically
+
+Automating report assembly or status updates without checking whether the person
+approving them can actually absorb a bigger, faster flow creates exactly this
+pattern. [The fix already covered on this site is the design standard the review
+step needs to meet](/blog/what-human-in-the-loop-costs-in-time): under two minutes
+per item, a pre-assembled draft instead of a rebuild from scratch, a queue instead
+of a blocking gate. Skip that design work and the automation upstream doesn't save
+time, it just moves the same bottleneck downstream and makes it arrive faster.
+
+## What to check before automating the easy part
+
+Before speeding up any single step, [the same two-question test already covered
+here](/blog/simple-test-what-to-automate-vs-what-needs-a-human) needs one more
+question added: can whatever comes right after this step handle the new volume, not
+just the new speed. [See how workflow design accounts for the whole chain](/services),
+not just the one link that looked easiest to automate first.

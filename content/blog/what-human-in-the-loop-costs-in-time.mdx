@@ -1,0 +1,54 @@
+---
+title: "What Human-in-the-Loop Actually Costs You in Time"
+description: "A human checkpoint that takes 10 minutes isn't sustainable. One that takes under 2 usually means the interface handed the reviewer everything they needed, instead of making them go find it."
+date: "2026-10-11"
+coverImage: "/blog/placeholder.svg"
+coverImageAlt: "A quick two-minute human review checkpoint inside an automated workflow - Automatoro blog"
+summary: "A human review step that takes 10 minutes per item isn't sustainable and defeats the point of automating the work around it, but a well-designed one takes under 2 minutes, because the reviewer is verifying a pre-assembled draft instead of reconstructing context from scratch. Keeping a human in the loop on client-facing work is worth the time it actually costs once the review step is designed to be fast, which is a design problem, not a fixed price for having a person involved."
+category: "Workflow Design"
+author: "Youssef Elbeqqal"
+---
+
+Ask why an agency hesitates to automate a client-facing step and "we want a human to
+check it first" comes up fast. The unspoken worry right behind that is what the
+check itself costs: does keeping a person in the loop just rebuild the bottleneck
+automation was supposed to remove?
+
+## The actual target is under two minutes
+
+[AI Solutions for Small Biz puts a number on it](https://aisolutionsforsmallbiz.com/resources/how-to-add-human-review-to-ai-workflows/):
+"a review gate that takes 10 minutes is not sustainable. A good review interface
+should take under 2 minutes for most items." Their diagnosis of what makes the
+difference matters more than the number itself: "if review is taking too long, look
+at the interface and the prompts, not at the human reviewer." A slow review usually
+isn't a slow person, it's a review step that never got designed.
+
+## Why the automation shouldn't wait on the review either
+
+[Marco Coronado's framing of the checkpoint itself](https://semnexus.com/workflow-automation-handoff-points-where-human-review-belongs)
+adds the other half: a well-built checkpoint is asynchronous, not blocking. "The
+automation doesn't halt, it routes the flagged item to a queue and continues
+processing everything else." The two-minute review cost applies to that one item,
+on the reviewer's own schedule, not to the whole pipeline sitting idle until someone
+opens their inbox.
+
+## What actually makes a review slow
+
+Coronado names the real driver: "a reviewer who has to reconstruct context from
+scratch will make slower, worse decisions." That's the same problem this site keeps
+circling back to from different angles, [a new client contact inheriting no
+context](/blog/client-point-of-contact-changes-mid-project), [a pilot that only
+holds up under ideal conditions](/blog/why-automation-projects-stall-after-the-pilot).
+A fast review depends on everything the reviewer needs already sitting in front of
+them: the original input, what changed, why it's flagged, not a search through three
+tools to reconstruct what's actually being approved.
+
+## What this changes about the tradeoff
+
+[Human-in-the-loop automation](/blog/human-in-the-loop-automation-explained) isn't
+a fixed cost that gets paid every time a person stays involved. It's a design choice
+with a real, controllable price, and that price is usually close to zero once the
+review step is built around the two things above: a pre-assembled draft and a queue
+that doesn't block anything else. [See how workflow design builds that review step
+in](/services), instead of treating "keep a human in the loop" as the same thing as
+"slow it down."
